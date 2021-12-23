@@ -1,45 +1,121 @@
-    async function getPhotographers() {
-        // Penser à remplacer par les données récupérées dans le json
-        const photographers = [
-            {
-                "name": "Ma data test",
-                "id": 1,
-                "city": "Paris",
-                "country": "France",
-                "tagline": "Ceci est ma data test",
-                "price": 400,
-                "portrait": "account.png"
-            },
-            {
-                "name": "Autre data test",
-                "id": 2,
-                "city": "Londres",
-                "country": "UK",
-                "tagline": "Ceci est ma data test 2",
-                "price": 500,
-                "portrait": "account.png"
-            },
-        ]
-        // et bien retourner le tableau photographers seulement une fois
-        return ({
-            photographers: [...photographers, ...photographers, ...photographers]})
+/**
+ * Fetch Json files with all datas
+ * @returns {Promise<void>}
+ */
+const getPhotographers = async () => {
+    const response = await fetch('/data/photographers.json');
+    const data = await response.json();
+    const photographers = data.photographers;
+    displayPhotographers(photographers);
+}
+
+getPhotographers();
+
+const displayPhotographers = (photographers) => {
+
+    //TODO A DOCUMENTER
+    photographers.map((photographer) => {
+        displayPhotographer(photographer);
+    });
+}
+
+const displayPhotographer = (photographer) => {
+    console.log(photographer);
+    /**
+     * Fetch photographer_section id
+     * @type {HTMLElement}
+     */
+    let section = document.getElementById('photographer_section');
+
+    /**
+     * function to create cards used for each tags
+     * @param tag name of the tag
+     * @param data Data to inject
+     * @param attr Call setAttr if you need attribut
+     * @returns {*}
+     */
+    const createElementToCard = (tag, data, attr) => {
+        const element = document.createElement(tag);
+        if (data) {
+            element.innerHTML = data;
+        }
+        if (attr) {
+            setAttr(element, attr)
+        }
+        return element;
     }
 
-    async function displayData(photographers) {
-        const photographersSection = document.querySelector(".photographer_section");
+    /**
+     * Set attribut if you need it
+     * @param element
+     * @param attr
+     */
+    const setAttr = (element, attr) => {
+        attr.map(val => element.setAttribute(val.attribut, val.content));
+    }
 
-        photographers.forEach((photographer) => {
-            const photographerModel = photographerFactory(photographer);
-            const userCardDOM = photographerModel.getUserCardDOM();
-            photographersSection.appendChild(userCardDOM);
-        });
-    };
+    const elementIMG = createElementToCard(
+        'img',
+        null,
+        [{ attribut: "src", content: photographer.portrait }]
+    );
 
-    async function init() {
-        // Récupère les datas des photographes
-        const { photographers } = await getPhotographers();
-        displayData(photographers);
-    };
-    
-    init();
-    
+    elementIMG.setAttribute('src',
+        '/assets/images/Sample%20Photos/Photographers%20ID%20Photos/' + photographer.portrait
+    )
+
+    const elementP = createElementToCard(
+        'p',
+        photographer.tagline,
+        null
+    );
+
+    const elementH2 = createElementToCard(
+        'h2',
+        photographer.name,
+        null
+    )
+
+    const elementH3 = createElementToCard(
+        'h3',
+        [photographer.city + ', ' + photographer.country]
+    );
+
+    const elementSPAN = createElementToCard(
+        'span',
+        photographer.price,
+        null,
+    )
+    const elementFIGCAPTION = createElementToCard(
+        'figcaption',
+        null,
+        null,
+    )
+
+    const elementFIGURE = createElementToCard(
+        'figure',
+        null,
+        null,
+    )
+
+    const elementARTICLE = createElementToCard(
+        'article',
+        null,
+        null,
+    )
+
+    /**
+     * Inject element from children to his parents
+     */
+    elementFIGCAPTION.appendChild(elementH2);
+    elementFIGCAPTION.appendChild(elementH3);
+    elementFIGCAPTION.appendChild(elementP);
+    elementFIGCAPTION.appendChild(elementSPAN);
+
+    elementFIGURE.appendChild(elementIMG);
+    elementFIGURE.appendChild(elementFIGCAPTION);
+
+    elementARTICLE.appendChild(elementFIGURE);
+
+    section.appendChild(elementARTICLE);
+}

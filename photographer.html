@@ -1,37 +1,75 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+<html lang="">
+<head>
+    <link href="css/photographer.css" rel="stylesheet" type="text/css"/>
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
-      <link rel="stylesheet" href="css/normalizer.css"/>
-      <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalizer.css"/>
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
-    </main>
+</head>
+<body>
+
+<header>
+    <a href="index.html">
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page"/>
+    </a>
+</header>
+
+<section id="header_section"></section>
+<section>
     <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+        <div class="modal">
+            <header>
+                <h2>Contactez-moi</h2>
+                <img src="assets/icons/close.svg" onclick="closeModal()"/>
+            </header>
+
+            <form>
+                <div>
+                    <label>Prénom</label>
+                    <input/>
+                </div>
+                <button class="contact_button">Envoyer</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section id="select-options">
+    <span>Trier par</span>
+    <label for="pet-select"></label>
+    <select name="pets" id="pet-select">
+        <option value="popularity">Popularité</option>
+        <optgroup label="_________">
+            <option value="date">Date</option>
+        </optgroup>
+        <optgroup label="_________">
+            <option value="title">Titre</option>
+        </optgroup>
+    </select>
+</section>
+
+<section id="gallery">
+    <article>
+        <figure>
+            <img src="/assets/images/Sample%20Photos/Photographers%20ID%20Photos/MimiKeel.jpg"
+                 alt="">
+            <figcaption>
+                <p>Arc-en-cie</p>
+
+                <span>11</span>
+                <i class="fas fa-heart"></i>
+
+            </figcaption>
+        </figure>
+    </article>
+</section>
+
+<script src="/scripts/utils/contactForm.js"></script>
+<script src="scripts/models/ModelPhotographer.js"></script>
+<script src="scripts/factories/Photographer.js"></script>
+
+<script src="scripts/pages/photographer.js"></script>
+</body>
 </html>
