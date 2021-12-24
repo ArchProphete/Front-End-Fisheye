@@ -18,12 +18,17 @@ getPhotographer(idFromUrl); // passer l'id de l'url
 const displayPhotographer = (data, idFromUrl) => {
 
     const photographerlist = data.photographers;
-    console.log(photographerlist)
-
-    const idFind = photographerlist.find((photographer) => photographer.id === 243)
-    console.log(idFind)
-
+    const idFind = photographerlist.find((photographer) => photographer.id == idFromUrl)
     displayPhotographerHeader(idFind)
+
+    const mediaList = data.media;
+    const mediaIds = mediaList.filter((media) => media.photographerId == idFromUrl);
+
+
+    mediaIds.map((mediaId) => {
+        displayMedia(mediaId, idFind)
+    })
+
     /**
      if (idFind == null) {
         console.log("Pas D'id correspondant")
@@ -36,21 +41,6 @@ const displayPhotographer = (data, idFromUrl) => {
 
 const displayPhotographerHeader = (idFind) => {
     const section = document.getElementById('header_section')
-
-    const createElementToCard = (tag, data, attr) => {
-        const element = document.createElement(tag);
-        if (data) {
-            element.innerHTML = data;
-        }
-        if (attr) {
-            setAttr(element, attr)
-        }
-        return element;
-    }
-
-    const setAttr = (element, attr) => {
-        attr.map(val => element.setAttribute(val.attribut, val.content));
-    }
 
     const elementH1 = createElementToCard('h1', idFind.name, null)
     const elementH2 = createElementToCard('H2', [idFind.city + ', ' + idFind.country], null)
@@ -69,10 +59,11 @@ const displayPhotographerHeader = (idFind) => {
     elementButton.setAttribute('onclick', 'displayModal()')
 
     const elementDiv = createElementToCard('div', null,
-        [{attribut: 'class', content: 'photograph-header'}])
+        [{ attribut: 'class', content: 'photograph-header' }])
 
     const elementMain = createElementToCard('main', null, [{
-        attribut: 'id', content: 'main' }])
+        attribut: 'id', content: 'main'
+    }])
 
     elementDiv.appendChild(elementButton)
     elementMain.appendChild(elementDiv)
@@ -81,41 +72,14 @@ const displayPhotographerHeader = (idFind) => {
     const elementIMG = createElementToCard('img', null, null)
 
     elementIMG.setAttribute('src',
-        '/assets/images/Sample%20Photos/Photographers%20ID%20Photos/' + idFind.portrait
+        `/assets/images/Sample%20Photos/Photographers%20ID%20Photos/${idFind.portrait}`
     )
 
     section.appendChild(elementIMG)
 }
 
-const displayMedia = (media, photographer) => {
-
+const displayMedia = (media, idFind) => {
     let section = document.getElementById('gallery')
-
-    /**
-     * function to create cards used for each tags
-     * @param tag name of the tag
-     * @param data Data to inject
-     * @param attr Call setAttr if you need attribut
-     * @returns {*}
-     */
-    const createElementToCard = (tag, data, attr) => {
-        const element = document.createElement(tag);
-        if (data) {
-            element.innerHTML = data;
-        }
-        if (attr) {
-            setAttr(element, attr)
-        }
-        return element;
-    }
-    /**
-     * Set attribut if you need it
-     * @param element
-     * @param attr
-     */
-    const setAttr = (element, attr) => {
-        attr.map(val => element.setAttribute(val.attribut, val.content));
-    }
 
     const elementIMG = createElementToCard(
         'img',
@@ -124,7 +88,8 @@ const displayMedia = (media, photographer) => {
     );
 
     elementIMG.setAttribute('src',
-        photographer.id == media.id ? `/assets/images/Sample%20Photos/${photographer.name}/${media.image}` : ''
+        `/assets/images/Sample%20Photos/${idFind.name}/${media.image}`
+
     )
 
     const elementP = createElementToCard(
@@ -140,7 +105,7 @@ const displayMedia = (media, photographer) => {
     )
 
     const elementI = createElementToCard(
-        'figcaption',
+        'i',
         null,
         [{ attribut: "class", content: "fas fa-heart" }],
     )
@@ -167,8 +132,9 @@ const displayMedia = (media, photographer) => {
      * Inject element from children to his parents
      */
     elementFIGCAPTION.appendChild(elementP);
-    elementFIGCAPTION.appendChild(elementI);
     elementFIGCAPTION.appendChild(elementSPAN);
+    elementFIGCAPTION.appendChild(elementI);
+
 
     elementFIGURE.appendChild(elementIMG);
     elementFIGURE.appendChild(elementFIGCAPTION);

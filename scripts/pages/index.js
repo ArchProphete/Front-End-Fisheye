@@ -20,39 +20,24 @@ const displayPhotographers = (photographers) => {
 }
 
 const displayPhotographer = (photographer) => {
-    console.log(photographer);
-    /**
-     * Fetch photographer_section id
-     * @type {HTMLElement}
-     */
+
+
+    const elementSectionHeader = createElementToCard('section', null,
+        [{ attribut: 'id' , content: 'photographer_section'}])
+    const elementA = createElementToCard('a', null,
+        [{ attribut: 'href', content: `photographer.html?id=${photographer.id}` }])
+    const elementMain = createElementToCard('main', null,
+        [{ attribut: 'id', content: 'main' }])
+
+    console.log(elementSectionHeader)
+    console.log(elementA)
+    console.log(elementMain)
+
+    elementA.appendChild(elementSectionHeader)
+    elementMain.appendChild(elementA)
+    document.body.appendChild(elementMain)
+
     let section = document.getElementById('photographer_section');
-
-    /**
-     * function to create cards used for each tags
-     * @param tag name of the tag
-     * @param data Data to inject
-     * @param attr Call setAttr if you need attribut
-     * @returns {*}
-     */
-    const createElementToCard = (tag, data, attr) => {
-        const element = document.createElement(tag);
-        if (data) {
-            element.innerHTML = data;
-        }
-        if (attr) {
-            setAttr(element, attr)
-        }
-        return element;
-    }
-
-    /**
-     * Set attribut if you need it
-     * @param element
-     * @param attr
-     */
-    const setAttr = (element, attr) => {
-        attr.map(val => element.setAttribute(val.attribut, val.content));
-    }
 
     const elementIMG = createElementToCard(
         'img',
