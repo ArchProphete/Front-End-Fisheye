@@ -4,6 +4,12 @@
 body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
+    .main {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 70px;
+        margin-top: 50px;
+    }
     header {
         a {
             img {
@@ -112,6 +118,19 @@ body {
                     border: none;
                     border-radius: 5px;
                 }
+                button {
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: $white;
+                    padding: 11px;
+                    width: 170px;
+                    height: 70px;
+                    border: none;
+                    background-color: $primary-color;
+                    border-radius: 5px;
+                    cursor: pointer;
+
+                }
             }
         }
     }
@@ -139,11 +158,9 @@ body {
     }
 }
 
+
     #gallery {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 70px;
-        margin-top: 50px;
+
 
         article {
             width: 300px;
@@ -161,11 +178,71 @@ body {
                     text-align: right;
                     color: $primary-color;
                     p { position: absolute; }
+                    span { margin-right: 15px; }
                 }
             }
         }
     }
 }
 
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .9);
+    z-index: 10;
+
+    button {
+        &:hover {
+            cursor: pointer;
+            transition: .3s;
+            opacity: .5;
+
+        }
+    }
+
+    .lightbox__next,
+    .lightbox__prev {
+        background: url(/assets/images/chevron-right-solid.svg)
+        center center / 16px 28px no-repeat;
+        width: 50px;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        margin-top: -14px;
+        z-index: 11;
+        text-indent: -3000px;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .lightbox__prev {
+        right: auto;
+        left: 0;
+        transform: rotate(180deg);
+    }
+    .lightbox__close {
+        width: 15px;
+        height: 15px;
+        border: none;
+        background: url(/assets/images/times-solid.svg)
+        center center / 16px 28px no-repeat;
+        position: fixed;
+        text-indent: -3000px;
+        top: 20px;
+        right: 20px;
+    }
+    .lightbox__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0 50px;
+    }
+}
 
 

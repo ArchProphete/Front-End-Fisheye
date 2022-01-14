@@ -8,35 +8,20 @@ const getPhotographer = async (idFromUrl) => {
     const response = await fetch('/data/photographers.json');
     const data = await response.json();
     displayPhotographer(data, idFromUrl)
-    // displayMedias(medias, photographers);
 }
 
 getPhotographer(idFromUrl); // passer l'id de l'url
-// création de display photographer
-
 
 const displayPhotographer = (data, idFromUrl) => {
 
-    const photographerlist = data.photographers;
-    const idFind = photographerlist.find((photographer) => photographer.id == idFromUrl)
+    const idFind = data.photographers.find((photographer) => photographer.id == idFromUrl)
     displayPhotographerHeader(idFind)
 
-    const mediaList = data.media;
-    const mediaIds = mediaList.filter((media) => media.photographerId == idFromUrl);
-
+    const mediaIds = data.media.filter((media) => media.photographerId == idFromUrl);
 
     mediaIds.map((mediaId) => {
         displayMedia(mediaId, idFind)
     })
-
-    /**
-     if (idFind == null) {
-        console.log("Pas D'id correspondant")
-    } else {
-        window.location.href = "/Front-End-Fisheye/index.html"
-    }
-     */
-
 }
 
 const displayPhotographerHeader = (idFind) => {
@@ -89,7 +74,6 @@ const displayMedia = (media, idFind) => {
 
     elementIMG.setAttribute('src',
         `/assets/images/Sample%20Photos/${idFind.name}/${media.image}`
-
     )
 
     const elementP = createElementToCard(
@@ -142,5 +126,4 @@ const displayMedia = (media, idFind) => {
     elementARTICLE.appendChild(elementFIGURE);
 
     section.appendChild(elementARTICLE);
-
 }

@@ -13,31 +13,30 @@ getPhotographers();
 
 const displayPhotographers = (photographers) => {
 
+
     //TODO A DOCUMENTER
     photographers.map((photographer) => {
         displayPhotographer(photographer);
     });
+
+
+
 }
 
 const displayPhotographer = (photographer) => {
 
 
     const elementSectionHeader = createElementToCard('section', null,
-        [{ attribut: 'id' , content: 'photographer_section'}])
+        [{ attribut: 'id' , content: 'photographer_section_' + photographer.id}]);
     const elementA = createElementToCard('a', null,
-        [{ attribut: 'href', content: `photographer.html?id=${photographer.id}` }])
-    const elementMain = createElementToCard('main', null,
-        [{ attribut: 'id', content: 'main' }])
+        [{ attribut: 'href', content: `photographer.html?id=${photographer.id}` }]);
 
-    console.log(elementSectionHeader)
-    console.log(elementA)
-    console.log(elementMain)
-
+console.log(photographer);
     elementA.appendChild(elementSectionHeader)
-    elementMain.appendChild(elementA)
-    document.body.appendChild(elementMain)
+    document.getElementById('main').appendChild(elementA)
 
-    let section = document.getElementById('photographer_section');
+
+    //let section = document.getElementById('photographer_section');
 
     const elementIMG = createElementToCard(
         'img',
@@ -102,5 +101,5 @@ const displayPhotographer = (photographer) => {
 
     elementARTICLE.appendChild(elementFIGURE);
 
-    section.appendChild(elementARTICLE);
+    elementSectionHeader.appendChild(elementARTICLE);
 }

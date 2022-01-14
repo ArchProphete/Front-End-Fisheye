@@ -8,20 +8,78 @@
     <title>Fisheye - photographe </title>
 </head>
 <body>
+<main>
+    <header>
+        <a href="index.html">
+            <img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page"/>
+        </a>
 
-<header>
-    <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page"/>
-    </a>
-</header>
+        <section id="header_section"></section>
 
-<section id="header_section"></section>
+
+    </header>
+
+
+    <section id="gallery">
+        <section id="select-options">
+            <span>Trier par</span>
+            <label for="pet-select"></label>
+            <select name="pets" id="pet-select">
+                <option value="popularity">Popularité</option>
+                <optgroup label="_________">
+                    <option value="date">Date</option>
+                </optgroup>
+                <optgroup label="_________">
+                    <option value="title">Titre</option>
+                </optgroup>
+            </select>
+        </section>
+        
+        <div id="medias">
+            <article></article>
+            <article></article>
+            <article></article>
+            <article></article>
+            <article></article>
+            <article></article>
+            <article></article>
+            <article></article>
+            <article></article>
+            <article></article>
+        </div>
+        <!--
+        <article>
+            <figure>
+                <img src="/assets/images/Sample%20Photos/Photographers%20ID%20Photos/MimiKeel.jpg"
+                     alt="">
+                <figcaption>
+                    <p>Arc-en-cie</p>
+
+                    <span>11</span>
+                    <i class="fas fa-heart"></i>
+
+                </figcaption>
+            </figure>
+        </article>
+         -->
+    </section>
+</main>
+<!--<div class="lightbox">
+    <button class="lightbox__close">Fermer</button>
+    <button class="lightbox__next">Suivant</button>
+    <button class="lightbox__prev">Précédent</button>
+    <div class="lightbox__container">
+        <img src="/assets/images/Sample%20Photos/Marcel/Travel_Tower.jpg" alt="">
+    </div>
+</div>-->
+
+
 <section>
     <div id="contact_modal">
         <div class="modal">
             <header>
                 <h2>Contactez-moi</h2>
-                <img src="assets/icons/close.svg" onclick="closeModal()"/>
+                <img src="assets/icons/close.svg" onclick="closeModal()" alt=""/>
             </header>
 
             <form>
@@ -55,36 +113,6 @@
             </form>
         </div>
     </div>
-</section>
-
-<section id="select-options">
-    <span>Trier par</span>
-    <label for="pet-select"></label>
-    <select name="pets" id="pet-select">
-        <option value="popularity">Popularité</option>
-        <optgroup label="_________">
-            <option value="date">Date</option>
-        </optgroup>
-        <optgroup label="_________">
-            <option value="title">Titre</option>
-        </optgroup>
-    </select>
-</section>
-
-<section id="gallery">
-    <article>
-        <figure>
-            <img src="/assets/images/Sample%20Photos/Photographers%20ID%20Photos/MimiKeel.jpg"
-                 alt="">
-            <figcaption>
-                <p>Arc-en-cie</p>
-
-                <span>11</span>
-                <i class="fas fa-heart"></i>
-
-            </figcaption>
-        </figure>
-    </article>
 </section>
 
 <script src="/scripts/utils/functions.js"></script>
