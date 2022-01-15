@@ -1,0 +1,90 @@
+@import url("photographer.scss");
+body {
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+}
+body header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+}
+body header img {
+  height: 50px;
+  margin-left: 100px;
+}
+body header h1 {
+  color: #901C1C;
+  margin-right: 100px;
+}
+body article {
+  width: 300px;
+}
+body article a figure {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+body article a figure img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+body article a figure figcaption {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+}
+body article a figure figcaption h2 {
+  color: #D3573C;
+}
+body article a figure figcaption h3 {
+  color: #901C1C;
+}
+body article a figure figcaption span {
+  color: #525252;
+}
+body a {
+  text-decoration: none;
+}
+body a:visited, body a:hover, body a:active {
+  color: inherit;
+}
+body a .photographer_section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
+  margin-top: 100px;
+}
+body a .photographer_section article figure {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+body a .photographer_section article figure img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+body a .photographer_section article figure figcaption {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 0;
+}
+body a .photographer_section article figure figcaption h2 {
+  color: #D3573C;
+}
+body a .photographer_section article figure figcaption h3 {
+  color: #901C1C;
+}
+body a .photographer_section article figure figcaption span {
+  color: #525252;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,271 @@
+@import url("https://pro.fontawesome.com/releases/v5.10.0/css/all.css");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+@import url("https://pro.fontawesome.com/releases/v5.10.0/css/all.css");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+body {
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+}
+body .main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
+  margin-top: 50px;
+}
+body header a img {
+  width: 25%;
+  margin: 25px 0 0 35px;
+}
+body #header_section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+body #header_section label h1 {
+  font-size: 30px;
+  color: #D3573C;
+}
+body #header_section label h2 {
+  font-size: 20px;
+  color: #901C1C;
+}
+body #header_section label p {
+  color: #525252;
+}
+body #header_section main .photograph-header .contact_button {
+  font-size: 20px;
+  font-weight: bold;
+  color: #FAFAFA;
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901C1C;
+  border-radius: 5px;
+  cursor: pointer;
+}
+body #header_section > img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+body #contact_modal {
+  display: none;
+}
+body #contact_modal .modal {
+  border-radius: 5px;
+  background-color: #D3573C;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 35px;
+  margin: auto;
+}
+body #contact_modal .modal header {
+  justify-content: space-between;
+  width: 100%;
+}
+body #contact_modal .modal header img {
+  cursor: pointer;
+}
+body #contact_modal .modal header h2 {
+  font-size: 64px;
+  font-weight: normal;
+  text-align: center;
+}
+body #contact_modal .modal form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+body #contact_modal .modal form label {
+  color: #312E2E;
+  font-size: 36px;
+}
+body #contact_modal .modal form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-start;
+  margin-bottom: 26px;
+}
+body #contact_modal .modal form input {
+  width: 100%;
+  height: 68px;
+  border: none;
+  border-radius: 5px;
+}
+body #contact_modal .modal form button {
+  font-size: 20px;
+  font-weight: bold;
+  color: #FAFAFA;
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901C1C;
+  border-radius: 5px;
+  cursor: pointer;
+}
+body #select-options {
+  position: relative;
+  left: 50px;
+}
+body #select-options span {
+  font-weight: bold;
+}
+body #select-options select {
+  margin-left: 10px;
+  background: #901C1C;
+  border-radius: 5px;
+  color: #FAFAFA;
+  height: 50px;
+  width: 120px;
+  border: none;
+}
+body #select-options select optgroup {
+  color: #FAFAFA;
+  text-align: center;
+  margin-bottom: 10px;
+}
+body #gallery article {
+  width: 300px;
+}
+body #gallery article figure {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+body #gallery article figure img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+body #gallery article figure figcaption {
+  width: 200px;
+  text-align: right;
+  color: #901C1C;
+}
+body #gallery article figure figcaption p {
+  position: absolute;
+}
+body #gallery article figure figcaption span {
+  margin-right: 15px;
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 10;
+}
+.lightbox button:hover {
+  cursor: pointer;
+  transition: 0.3s;
+  opacity: 0.5;
+}
+.lightbox .lightbox__next,
+.lightbox .lightbox__prev {
+  background: url(/assets/images/chevron-right-solid.svg) center center/16px 28px no-repeat;
+  width: 50px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-top: -14px;
+  z-index: 11;
+  text-indent: -3000px;
+}
+.lightbox .lightbox__next:hover,
+.lightbox .lightbox__prev:hover {
+  opacity: 1;
+}
+.lightbox .lightbox__prev {
+  right: auto;
+  left: 0;
+  transform: rotate(180deg);
+}
+.lightbox .lightbox__close {
+  width: 15px;
+  height: 15px;
+  border: none;
+  background: url(/assets/images/times-solid.svg) center center/16px 28px no-repeat;
+  position: fixed;
+  text-indent: -3000px;
+  top: 20px;
+  right: 20px;
+}
+.lightbox .lightbox__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0 50px;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+}
+body header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+}
+body header img {
+  height: 50px;
+  margin-left: 100px;
+}
+body header h1 {
+  color: #901C1C;
+  margin-right: 100px;
+}
+body main {
+  text-decoration: none;
+}
+body main:visited, body main:hover, body main:active {
+  color: inherit;
+}
+body main section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
+  margin-top: 100px;
+}
+body main section article figure {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+body main section article figure img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+body main section article figure figcaption {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+}
+body main section article figure figcaption h2 {
+  color: #D3573C;
+}
+body main section article figure figcaption h3 {
+  color: #901C1C;
+}
+body main section article figure figcaption span {
+  color: #525252;
+}
+
+/*# sourceMappingURL=style.css.map */
