@@ -12,15 +12,9 @@ const getPhotographers = async () => {
 getPhotographers();
 
 const displayPhotographers = (photographers) => {
-
-
-    //TODO A DOCUMENTER
     photographers.map((photographer) => {
         displayPhotographer(photographer);
     });
-
-
-
 }
 
 const displayPhotographer = (photographer) => {
@@ -31,12 +25,8 @@ const displayPhotographer = (photographer) => {
     const elementA = createElementToCard('a', null,
         [{ attribut: 'href', content: `photographer.html?id=${photographer.id}` }]);
 
-console.log(photographer);
     elementA.appendChild(elementSectionHeader)
     document.getElementById('main').appendChild(elementA)
-
-
-    //let section = document.getElementById('photographer_section');
 
     const elementIMG = createElementToCard(
         'img',
@@ -67,7 +57,7 @@ console.log(photographer);
 
     const elementSPAN = createElementToCard(
         'span',
-        photographer.price,
+        photographer.price + '€/jour',
         null,
     )
     const elementFIGCAPTION = createElementToCard(
