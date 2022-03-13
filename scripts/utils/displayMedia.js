@@ -1,5 +1,5 @@
-const displayMedia = (media, idFind) => {
-    let mediaSection = document.getElementById('medias')
+const displayMedia = (media, photographer) => {
+    let mediaSection = document.getElementById('medias');
 
     const elementFIGURE = createElementToCard(
         'figure',
@@ -15,7 +15,7 @@ const displayMedia = (media, idFind) => {
         );
 
         elementMedia.setAttribute('src',
-            `/assets/images/Sample%20Photos/${idFind.name}/${media.image}`
+            `/assets/images/Sample%20Photos/${photographer.name}/${media.image}`
         );
 
         elementMedia.classList.add('media');
@@ -32,8 +32,8 @@ const displayMedia = (media, idFind) => {
 
         elementMedia.setAttribute(
             'src',
-            `/assets/images/Sample%20Photos/${idFind.name}/${media.video}`
-        )
+            `/assets/images/Sample%20Photos/${photographer.name}/${media.video}`
+        );
 
         elementMedia.classList.add('media');
 
@@ -82,4 +82,7 @@ const displayMedia = (media, idFind) => {
     elementARTICLE.appendChild(elementFIGURE);
 
     mediaSection.appendChild(elementARTICLE);
+
 }
+
+

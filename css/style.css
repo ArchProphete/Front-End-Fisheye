@@ -58,6 +58,7 @@ body main .photograph-header .contact_button {
 }
 body main #gallery .select {
   max-width: 16rem;
+  margin: 20px 50px 0 50px;
 }
 body main #gallery .css-select,
 body main #gallery .css-select *,
@@ -98,7 +99,7 @@ body main #gallery .css-select__selected {
   line-height: 1.2;
   border: none;
   border-radius: 0.25rem;
-  background: #313131;
+  background: #901C1C;
   box-shadow: 0 0.25rem 1rem 0 rgba(0, 0, 0, 0.25);
   cursor: pointer;
   outline: none !important;
@@ -110,7 +111,7 @@ body main #gallery .css-select__dropdown {
   padding: 0.5rem;
   width: 100%;
   max-height: 9.75rem;
-  background: #313131;
+  background: #901C1C;
   border-radius: 0.25rem;
   box-shadow: 0 0.25rem 1rem 0 rgba(0, 0, 0, 0.25);
   transform: translateY(1.25rem);
@@ -128,7 +129,7 @@ body main #gallery .css-select__dropdown::-webkit-scrollbar-track {
   border-radius: 0.25rem;
 }
 body main #gallery .css-select__dropdown::-webkit-scrollbar-thumb {
-  background: #535353;
+  background: #901C1C;
   border-radius: 0.25rem;
 }
 body main #gallery .css-select__dropdown::-webkit-scrollbar-thumb:hover {
@@ -156,15 +157,13 @@ body main #gallery .css-select__option {
   cursor: pointer;
   outline: none !important;
 }
-body main #gallery .css-select__option:hover,
-body main #gallery .css-select__option:focus {
-  background: #797979;
+body main #gallery .css-select__option:hover, body main #gallery .css-select__option:focus {
+  background: #D3573C;
 }
 body main #medias {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 50px;
-  margin-top: 30px;
   padding: 50px;
 }
 body main #medias article figure {
@@ -259,6 +258,9 @@ body main #medias article figure figcaption span i {
   z-index: 10;
   padding: 100px;
 }
+#lightbox video {
+  width: 100%;
+}
 #lightbox button:hover {
   cursor: pointer;
   transition: 0.3s;
@@ -301,6 +303,9 @@ body main #medias article figure figcaption span i {
   object-fit: cover;
   height: 80vh;
   width: 100%;
+}
+#lightbox p {
+  color: #901C1C;
 }
 
 body {

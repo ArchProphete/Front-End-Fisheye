@@ -9,15 +9,12 @@ const getPhotographer = async (idFromUrl) => {
 
 getPhotographer(idFromUrl);
 
-
-
 const displayPhotographerHeader = (idFind) => {
     const section = document.getElementById('header_section')
 
     const elementH1 = createElementToCard('h1', idFind.name, null)
     const elementH2 = createElementToCard('H2', [idFind.city + ', ' + idFind.country], null)
     const elementP = createElementToCard('P', idFind.tagline, null)
-
     const elementLabel = createElementToCard('label', null, null)
 
     elementLabel.appendChild(elementH1);
@@ -41,11 +38,13 @@ const displayPhotographerHeader = (idFind) => {
     elementMain.appendChild(elementDiv)
 
     section.appendChild(elementMain)
+
     const elementIMG = createElementToCard('img', null, null)
 
     elementIMG.setAttribute('src',
         `/assets/images/Sample%20Photos/Photographers%20ID%20Photos/${idFind.portrait}`
     )
+
     section.appendChild(elementIMG)
 }
 
