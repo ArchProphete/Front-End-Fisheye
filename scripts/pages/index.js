@@ -76,9 +76,6 @@ const displayPhotographer = (photographer) => {
         null,
     )
 
-    /**
-     * Inject element from children to his parents
-     */
     elementFIGCAPTION.appendChild(elementH2);
     elementFIGCAPTION.appendChild(elementH3);
     elementFIGCAPTION.appendChild(elementP);

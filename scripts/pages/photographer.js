@@ -24,15 +24,18 @@ const displayPhotographerHeader = (idFind) => {
     section.appendChild(elementLabel)
 
     const elementButton = createElementToCard('button', 'Contactez-moi',
-        [{ attribut: 'class', content: 'contact_button' }])
-    elementButton.setAttribute('onclick', 'displayModal()')
+        [{ attribut: 'class', content: 'contact_button' }]
+    );
+
+    elementButton.addEventListener('click', () => displayContactform())
 
     const elementDiv = createElementToCard('div', null,
-        [{ attribut: 'class', content: 'photograph-header' }])
+        [{ attribut: 'class', content: 'photograph-header' }]
+    );
 
     const elementMain = createElementToCard('main', null, [{
         attribut: 'id', content: 'main'
-    }])
+    }]);
 
     elementDiv.appendChild(elementButton)
     elementMain.appendChild(elementDiv)
@@ -46,6 +49,7 @@ const displayPhotographerHeader = (idFind) => {
     )
 
     section.appendChild(elementIMG)
+
 }
 
 
