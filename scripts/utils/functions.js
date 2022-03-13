@@ -87,11 +87,12 @@ const getNextId = (listOfMediaById, index) => {
  * @param mediasSelectors
  * @param photographer
  */
-const getMediaAndHisLightboxBySelect = (mediaSection, selectType, mediasSelectors, photographer) => {
+const getMediaAndHisLightboxBySelect = (mediaSection, selectType, photographer) => {
     mediaSection.innerHTML = "";
     selectType.map((media) => {
         displayMedia(media, photographer);
     });
+    const mediasSelectors = document.querySelectorAll(".media");
     mediasSelectors.forEach((media) => {
         media.addEventListener('click', (e) => {
             displayLightBox(media.dataset.id, photographer, selectType);
@@ -115,11 +116,11 @@ const imgOrVideo = (mediaObject, photographer, mediaLightBox) => {
 
 /**
  * get current id and change next and previous dataset
- * @param listOfMediaById
+ * @param selectType
  * @param media_id
  */
-const getCurrentIdAndChangeDataset = (listOfMediaById, media_id) => {
-    let currentId = mediaIndexFunc(listOfMediaById, media_id);
-    document.getElementById('lightbox__prev').dataset.id = getPrevId(listOfMediaById, currentId);
-    document.getElementById('lightbox__next').dataset.id = getNextId(listOfMediaById, currentId);
+const getCurrentIdAndChangeDataset = (selectType, media_id) => {
+    let currentId = mediaIndexFunc(selectType, media_id);
+    document.getElementById('lightbox__prev').dataset.id = getPrevId(selectType, currentId);
+    document.getElementById('lightbox__next').dataset.id = getNextId(selectType, currentId);
 }

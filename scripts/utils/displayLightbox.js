@@ -1,10 +1,8 @@
-const displayLightBox = (media_id, photographer, listOfMediaById) => {
-    console.log(media_id)
-    console.log(photographer)
-    console.log(listOfMediaById)
+const displayLightBox = (media_id, photographer, selectType) => {
     // LIGHTBOX CREATION
-    let mediaIndex = mediaIndexFunc(listOfMediaById, media_id);
-    let mediaObject = mediaObjectFunc(listOfMediaById, media_id);
+    console.log("DISPLAYLIGHTBOX")
+    let mediaIndex = mediaIndexFunc(selectType, media_id);
+    let mediaObject = mediaObjectFunc(selectType, media_id);
 
     const elementLightBox = document.getElementById("lightbox");
 
@@ -26,8 +24,8 @@ const displayLightBox = (media_id, photographer, listOfMediaById) => {
         [{ attribut: 'id', content: 'lightbox__prev' }]
     );
 
-    let prevId = getPrevId(listOfMediaById, mediaIndex);
-    let nextId = getNextId(listOfMediaById, mediaIndex);
+    let prevId = getPrevId(selectType, mediaIndex);
+    let nextId = getNextId(selectType, mediaIndex);
 
     elementPrevButton.setAttribute('data-id', prevId);
     elementNextButton.setAttribute('data-id', nextId);
@@ -63,9 +61,8 @@ const displayLightBox = (media_id, photographer, listOfMediaById) => {
     const elementP = createElementToCard(
         'p',
         `${mediaObject.title}`,
-        [{attribut: 'id', content: 'title-paragraph'}]
+        null
     );
-
 
     elementLightBox.appendChild(elementCloseButton);
     elementLightBox.appendChild(elementNextButton);
@@ -86,22 +83,21 @@ const displayLightBox = (media_id, photographer, listOfMediaById) => {
 
     let mediaLightBox = document.getElementById('media_lightbox');
 
-    prevButton.addEventListener('click', (previousEvent) => {
-        media_id = previousEvent.target.dataset.id;
+    prevButton.addEventListener('click', (eventPrev) => {
+        media_id = eventPrev.target.dataset.id;
+        let mediaObject = mediaObjectFunc(selectType, media_id);
 
         imgOrVideo(mediaObject, photographer, mediaLightBox);
-        getCurrentIdAndChangeDataset(listOfMediaById, media_id);
+        getCurrentIdAndChangeDataset(selectType, media_id);
     });
 
-    nextButton.addEventListener('click', (nextEvent) => {
-        media_id = nextEvent.target.dataset.id;
+    nextButton.addEventListener('click', (eventNext) => {
+        media_id = eventNext.target.dataset.id;
+        let mediaObject = mediaObjectFunc(selectType, media_id);
 
         imgOrVideo(mediaObject, photographer, mediaLightBox);
-        getCurrentIdAndChangeDataset(listOfMediaById, media_id);
+        getCurrentIdAndChangeDataset(selectType, media_id);
     });
-
-
-
 
 
 }
