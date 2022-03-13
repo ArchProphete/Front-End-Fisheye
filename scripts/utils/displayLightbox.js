@@ -1,6 +1,5 @@
+// LIGHTBOX CREATION
 const displayLightBox = (media_id, photographer, selectType) => {
-    // LIGHTBOX CREATION
-    console.log("DISPLAYLIGHTBOX")
     let mediaIndex = mediaIndexFunc(selectType, media_id);
     let mediaObject = mediaObjectFunc(selectType, media_id);
 
@@ -70,34 +69,5 @@ const displayLightBox = (media_id, photographer, selectType) => {
     elementLightBox.appendChild(elementP);
 
     // LIGHTBOX CONTROL
-    const closeLightbox = document.getElementById("lightbox__close");
-    const nextButton = document.getElementById("lightbox__next");
-    const prevButton = document.getElementById("lightbox__prev");
-
-    elementLightBox.style.display = "block";
-
-    closeLightbox.addEventListener('click', () => {
-        elementLightBox.style.display = "none";
-        elementLightBox.innerHTML = '';
-    });
-
-    let mediaLightBox = document.getElementById('media_lightbox');
-
-    prevButton.addEventListener('click', (eventPrev) => {
-        media_id = eventPrev.target.dataset.id;
-        let mediaObject = mediaObjectFunc(selectType, media_id);
-
-        imgOrVideo(mediaObject, photographer, mediaLightBox);
-        getCurrentIdAndChangeDataset(selectType, media_id);
-    });
-
-    nextButton.addEventListener('click', (eventNext) => {
-        media_id = eventNext.target.dataset.id;
-        let mediaObject = mediaObjectFunc(selectType, media_id);
-
-        imgOrVideo(mediaObject, photographer, mediaLightBox);
-        getCurrentIdAndChangeDataset(selectType, media_id);
-    });
-
-
+    lightboxControl(selectType, media_id, photographer, elementLightBox)
 }

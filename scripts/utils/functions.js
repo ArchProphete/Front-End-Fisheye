@@ -140,3 +140,81 @@ const getCurrentIdAndChangeDataset = (selectType, media_id) => {
     document.getElementById('lightbox__prev').dataset.id = getPrevId(selectType, currentId);
     document.getElementById('lightbox__next').dataset.id = getNextId(selectType, currentId);
 }
+
+/**
+ * LIGHTBOX CONTROL
+ * @param selectType
+ * @param media_id
+ * @param photographer
+ * @param elementLightBox
+ */
+const lightboxControl = (selectType, media_id, photographer, elementLightBox) => {
+    const closeLightbox = document.getElementById("lightbox__close");
+    const nextButton = document.getElementById("lightbox__next");
+    const prevButton = document.getElementById("lightbox__prev");
+
+    elementLightBox.style.display = "block";
+    closeLightbox.addEventListener('click', () => {
+        elementLightBox.style.display = "none";
+        elementLightBox.innerHTML = '';
+    });
+
+    let mediaLightBox = document.getElementById('media_lightbox');
+
+    prevButton.addEventListener('click', (eventPrev) => {
+        media_id = eventPrev.target.dataset.id;
+        let mediaObject = mediaObjectFunc(selectType, media_id);
+
+        imgOrVideo(mediaObject, photographer, mediaLightBox);
+        getCurrentIdAndChangeDataset(selectType, media_id);
+    });
+
+    nextButton.addEventListener('click', (eventNext) => {
+        media_id = eventNext.target.dataset.id;
+        let mediaObject = mediaObjectFunc(selectType, media_id);
+
+        imgOrVideo(mediaObject, photographer, mediaLightBox);
+        getCurrentIdAndChangeDataset(selectType, media_id);
+    });
+}
+
+/**
+ * SELECT CONTROL
+ *
+ * @param mediaSection
+ * @param photographer
+ * @param listOfMediaById
+ */
+const selectControl = (mediaSection, photographer, listOfMediaById) => {
+    // By default, POPULARITY is selectioned
+    let arrayByPopularity = listOfMediaById.sort((a, b) => {
+        return b.likes > a.likes ? 1 : b.likes < a.likes ? -1 : 0;
+    });
+    getMediaAndHisLightboxBySelect(mediaSection, arrayByPopularity, photographer)
+
+    // Select sort by TITRE
+    document.getElementById('title').addEventListener('click', () => {
+        let arrayByTitle = listOfMediaById.sort((a, b) => {
+            if (a.title < b.title) { return -1; }
+            if (a.title > b.title) { return 1; }
+            return 0;
+        });
+        getMediaAndHisLightboxBySelect(mediaSection, arrayByTitle, photographer)
+    });
+
+    // Select sort by DATE
+    document.getElementById('date').addEventListener('click', () => {
+        let arrayByDate = listOfMediaById.sort((a, b) => {
+            return new Date(b.date) - new Date(a.date);
+        });
+        getMediaAndHisLightboxBySelect(mediaSection, arrayByDate, photographer)
+    });
+
+    // Select sort by POPULARITY
+    document.getElementById('popularity').addEventListener('click', () => {
+        let arrayByPopularity = listOfMediaById.sort((a, b) => {
+            return b.likes > a.likes ? 1 : b.likes < a.likes ? -1 : 0;
+        });
+        getMediaAndHisLightboxBySelect(mediaSection, arrayByPopularity, photographer)
+    });
+}

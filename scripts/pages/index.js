@@ -18,8 +18,6 @@ const displayPhotographers = (photographers) => {
 }
 
 const displayPhotographer = (photographer) => {
-
-
     const elementSectionHeader = createElementToCard('section', null,
         [{ attribut: 'id' , content: 'photographer_section_' + photographer.id}]);
     const elementA = createElementToCard('a', null,
