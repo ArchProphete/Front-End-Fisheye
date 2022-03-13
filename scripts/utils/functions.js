@@ -81,6 +81,22 @@ const getNextId = (listOfMediaById, index) => {
 };
 
 /**
+ * get list of media by id and return an array
+ * @param mediasData
+ * @param photographer
+ * @returns {*[]}
+ */
+const getListOfMediaByID = (mediasData, photographer) => {
+    let listOfMediaById = [];
+
+    mediasData.map((media) => {
+        displayMedia(media, photographer);
+        listOfMediaById.push(media)
+    });
+    return listOfMediaById;
+}
+
+/**
  * Return good media and his correct light box by select choice of the user
  * @param mediaSection
  * @param selectType
