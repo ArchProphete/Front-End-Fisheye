@@ -7,7 +7,7 @@ const getPhotographers = async () => {
     const data = await response.json();
     const photographers = data.photographers;
     displayPhotographers(photographers);
-}
+};
 
 getPhotographers();
 
@@ -15,7 +15,7 @@ const displayPhotographers = (photographers) => {
     photographers.map((photographer) => {
         displayPhotographer(photographer);
     });
-}
+};
 
 const displayPhotographer = (photographer) => {
     const elementSectionHeader = createElementToCard('section', null,
@@ -23,8 +23,8 @@ const displayPhotographer = (photographer) => {
     const elementA = createElementToCard('a', null,
         [{ attribut: 'href', content: `photographer.html?id=${photographer.id}` }]);
 
-    elementA.appendChild(elementSectionHeader)
-    document.getElementById('main').appendChild(elementA)
+    elementA.appendChild(elementSectionHeader);
+    document.getElementById('main').appendChild(elementA);
 
     const elementIMG = createElementToCard(
         'img',
@@ -34,7 +34,7 @@ const displayPhotographer = (photographer) => {
 
     elementIMG.setAttribute('src',
         '/assets/images/Sample%20Photos/Photographers%20ID%20Photos/' + photographer.portrait
-    )
+    );
 
     const elementP = createElementToCard(
         'p',
@@ -46,7 +46,7 @@ const displayPhotographer = (photographer) => {
         'h2',
         photographer.name,
         null
-    )
+    );
 
     const elementH3 = createElementToCard(
         'h3',
@@ -57,24 +57,25 @@ const displayPhotographer = (photographer) => {
         'span',
         photographer.price + '€/jour',
         null,
-    )
+    );
+
     const elementFIGCAPTION = createElementToCard(
         'figcaption',
         null,
         null,
-    )
+    );
 
     const elementFIGURE = createElementToCard(
         'figure',
         null,
         null,
-    )
+    );
 
     const elementARTICLE = createElementToCard(
         'article',
         null,
         null,
-    )
+    );
 
     elementFIGCAPTION.appendChild(elementH2);
     elementFIGCAPTION.appendChild(elementH3);

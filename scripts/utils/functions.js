@@ -94,7 +94,7 @@ const getListOfMediaByID = (mediasData, photographer) => {
         listOfMediaById.push(media)
     });
     return listOfMediaById;
-}
+};
 
 /**
  * Return good media and his correct light box by select choice of the user
@@ -114,7 +114,7 @@ const getMediaAndHisLightboxBySelect = (mediaSection, selectType, photographer) 
             displayLightBox(media.dataset.id, photographer, selectType);
         });
     });
-}
+};
 
 /**
  *  Get if the Json media is an image or a video and return the good path
@@ -128,7 +128,7 @@ const imgOrVideo = (mediaObject, photographer, mediaLightBox) => {
     } else if (mediaObject.video) {
         mediaLightBox.src = `/assets/images/Sample%20Photos/${photographer.name}/${mediaObject.video}`;
     }
-}
+};
 
 /**
  * get current id and change next and previous dataset
@@ -139,7 +139,7 @@ const getCurrentIdAndChangeDataset = (selectType, media_id) => {
     let currentId = mediaIndexFunc(selectType, media_id);
     document.getElementById('lightbox__prev').dataset.id = getPrevId(selectType, currentId);
     document.getElementById('lightbox__next').dataset.id = getNextId(selectType, currentId);
-}
+};
 
 /**
  * LIGHTBOX CONTROL
@@ -186,7 +186,7 @@ const lightboxControl = (selectType, media_id, photographer, elementLightBox) =>
  * @param listOfMediaById
  */
 const selectControl = (mediaSection, photographer, listOfMediaById) => {
-    // By default, POPULARITY is selectioned
+    // By default, POPULARITY is select
     let arrayByPopularity = listOfMediaById.sort((a, b) => {
         return b.likes > a.likes ? 1 : b.likes < a.likes ? -1 : 0;
     });
@@ -217,4 +217,4 @@ const selectControl = (mediaSection, photographer, listOfMediaById) => {
         });
         getMediaAndHisLightboxBySelect(mediaSection, arrayByPopularity, photographer)
     });
-}
+};

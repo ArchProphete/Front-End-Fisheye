@@ -1,11 +1,11 @@
-const urlParsed = new URL(window.location.href)
-idFromUrl = urlParsed.searchParams.get("id")
+const urlParsed = new URL(window.location.href);
+idFromUrl = urlParsed.searchParams.get("id");
 
 const getPhotographer = async (idFromUrl) => {
     const response = await fetch('/data/photographers.json');
     const data = await response.json();
-    displayPhotographer(data, idFromUrl)
-}
+    displayPhotographer(data, idFromUrl);
+};
 
 getPhotographer(idFromUrl);
 
@@ -21,7 +21,7 @@ const displayPhotographerHeader = (idFind) => {
     elementLabel.appendChild(elementH2);
     elementLabel.appendChild(elementP);
 
-    section.appendChild(elementLabel)
+    section.appendChild(elementLabel);
 
     const elementButton = createElementToCard('button', 'Contactez-moi',
         [{ attribut: 'class', content: 'contact_button' }]
@@ -37,19 +37,18 @@ const displayPhotographerHeader = (idFind) => {
         attribut: 'id', content: 'main'
     }]);
 
-    elementDiv.appendChild(elementButton)
-    elementMain.appendChild(elementDiv)
+    elementDiv.appendChild(elementButton);
+    elementMain.appendChild(elementDiv);
 
-    section.appendChild(elementMain)
+    section.appendChild(elementMain);
 
-    const elementIMG = createElementToCard('img', null, null)
+    const elementIMG = createElementToCard('img', null, null);
 
     elementIMG.setAttribute('src',
         `/assets/images/Sample%20Photos/Photographers%20ID%20Photos/${idFind.portrait}`
-    )
+    );
 
-    section.appendChild(elementIMG)
-
+    section.appendChild(elementIMG);
 }
 
 
