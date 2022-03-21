@@ -185,6 +185,13 @@ body main #medias article figure figcaption span i {
 
 #contact_modal {
   display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 20px;
+  background-color: #FFffffbb;
 }
 #contact_modal .modal {
   border-radius: 5px;
@@ -198,16 +205,17 @@ body main #medias article figure figcaption span i {
   margin: auto;
 }
 #contact_modal .modal header {
+  display: flex;
   justify-content: space-between;
   width: 100%;
 }
+#contact_modal .modal header h2, #contact_modal .modal header H3 {
+  font-size: 35px;
+  font-weight: normal;
+}
 #contact_modal .modal header img {
   cursor: pointer;
-}
-#contact_modal .modal header h2 {
-  font-size: 64px;
-  font-weight: normal;
-  text-align: center;
+  width: 30px;
 }
 #contact_modal .modal form {
   display: flex;
@@ -217,7 +225,7 @@ body main #medias article figure figcaption span i {
 }
 #contact_modal .modal form label {
   color: #312E2E;
-  font-size: 36px;
+  font-size: 25px;
 }
 #contact_modal .modal form div {
   display: flex;

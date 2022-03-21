@@ -17,32 +17,8 @@
     </header>
 
     <section id="gallery">
-        <div class="css-select select">
-            <input type="hidden"/>
-            <input type="text"
-                   class="css-select__selected"
-                   value="Popularité"
-                   readonly
-                   id="popularity"
-            />
-            <div class="css-select__dropdown">
-                <button
-                    type="button"
-                    class="css-select__option"
-                    id="date">
-                    Date
-                </button>
-                <button
-                    type="button"
-                    class="css-select__option"
-                    id="title">
-                    Titre
-                </button>
-            </div>
-        </div>
-
+        <div id="selectId" class="css-select select"></div>
         <div id="medias"></div>
-
     </section>
 </main>
 
@@ -52,11 +28,7 @@
     <div id="contact_modal"></div>
 </section>
 
-<script src="/scripts/utils/functions.js" defer></script>
-<script src="scripts/utils/displayPhotographer.js" defer></script>
-<script src="/scripts/utils/displayMedia.js" defer></script>
-<script src="/scripts/utils/displayLightbox.js" defer></script>
-<script src="/scripts/utils/displayContactform.js" defer></script>
-<script src="scripts/pages/photographer.js" defer></script>
+<script type="module" src="scripts/pages/photographer.js" defer></script>
+
 </body>
 </html>

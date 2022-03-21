@@ -1,20 +1,17 @@
-const displayMedia = (media, photographer) => {
+import { createElementToCard } from './functions.js';
+
+export const displayMedia = (media, photographer) => {
     let mediaSection = document.getElementById('medias');
 
-    const elementFIGURE = createElementToCard(
-        'figure',
-        null,
-        null,
-    );
+    const elementFIGURE = createElementToCard('figure', null, null);
 
     if (media.image) {
-        const elementMedia = createElementToCard(
-            'img',
-            null,
-            [{ attribut: "src", content: media.image }]
-        );
+        const elementMedia = createElementToCard('img', null, [
+            { attribut: 'src', content: media.image },
+        ]);
 
-        elementMedia.setAttribute('src',
+        elementMedia.setAttribute(
+            'src',
             `/assets/images/Sample%20Photos/${photographer.name}/${media.image}`
         );
 
@@ -22,13 +19,10 @@ const displayMedia = (media, photographer) => {
 
         elementMedia.setAttribute('data-id', `${media.id}`);
         elementFIGURE.appendChild(elementMedia);
-
     } else if (media.video) {
-        const elementMedia = createElementToCard(
-            'video',
-            null,
-            [{attribut: 'controls'}]
-        );
+        const elementMedia = createElementToCard('video', null, [
+            { attribut: 'controls' },
+        ]);
 
         elementMedia.setAttribute(
             'src',
@@ -41,35 +35,17 @@ const displayMedia = (media, photographer) => {
         elementFIGURE.appendChild(elementMedia);
     }
 
-    const elementP = createElementToCard(
-        'p',
-        media.title,
-        null,
-    );
+    const elementP = createElementToCard('p', media.title, null);
 
-    const elementSPAN = createElementToCard(
-        'span',
-        media.likes,
-        null,
-    );
+    const elementSPAN = createElementToCard('span', media.likes, null);
 
-    const elementI = createElementToCard(
-        'i',
-        null,
-        [{ attribut: "class", content: "fas fa-heart" }],
-    );
+    const elementI = createElementToCard('i', null, [
+        { attribut: 'class', content: 'fas fa-heart' },
+    ]);
 
-    const elementFIGCAPTION = createElementToCard(
-        'figcaption',
-        null,
-        null,
-    );
+    const elementFIGCAPTION = createElementToCard('figcaption', null, null);
 
-    const elementARTICLE = createElementToCard(
-        'article',
-        null,
-        null,
-    );
+    const elementARTICLE = createElementToCard('article', null, null);
     /**
      * Inject element from children to his parents
      */
@@ -82,7 +58,4 @@ const displayMedia = (media, photographer) => {
     elementARTICLE.appendChild(elementFIGURE);
 
     mediaSection.appendChild(elementARTICLE);
-
-}
-
-
+};
