@@ -314,4 +314,20 @@ body main #medias article figure figcaption span i {
   color: #901C1C;
 }
 
+#block-heart {
+  background-color: #D3573C;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding: 11px;
+  border-radius: 3px;
+  margin-right: 20px;
+}
+#block-heart span:first-child i {
+  margin-left: 5px;
+}
+#block-heart span:last-child {
+  margin-left: 10px;
+}
+
 /*# sourceMappingURL=photographer.css.map */

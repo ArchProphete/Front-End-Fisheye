@@ -314,7 +314,7 @@ body {
             cursor: pointer;
             transition: .3s;
             opacity: .5;
-            color: #901C1C;
+            color: $primary-color;
         }
     }
 
@@ -360,8 +360,24 @@ body {
     }
 
     p {
-        color: #901C1C;
+        color: $primary-color;
     }
 }
 
-
+#block-heart {
+    background-color: $secondary-color;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding: 11px;
+    border-radius: 3px;
+    margin-right: 20px;
+    span:first-child i {
+        margin-left: 5px;
+    }
+    span {
+        &:last-child {
+            margin-left: 10px;
+        }
+    }
+}
