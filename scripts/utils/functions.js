@@ -189,9 +189,7 @@ export const lightboxControl = (
 
     const mediaLightBox = document.getElementById('media_lightbox');
 
-    const previousImage = (eventPrev) => {
-        media_id = eventPrev.target.dataset.id;
-
+    const changeImage = (media_id) => {
         const mediaObject = mediaObjectFunc(selectType, media_id);
 
         imgOrVideo(mediaObject, photographer, mediaLightBox);
@@ -199,37 +197,22 @@ export const lightboxControl = (
         getCurrentIdAndChangeDataset(selectType, media_id);
     };
 
-    const nextImage = (eventNext) => {
-        media_id = eventNext.target.dataset.id;
-
-        const mediaObject = mediaObjectFunc(selectType, media_id);
-
-        imgOrVideo(mediaObject, photographer, mediaLightBox);
-        isTitleUndefined(mediaObject);
-        getCurrentIdAndChangeDataset(selectType, media_id);
-    };
-
-    const eventPrev = (eventPrev) => {
-        previousImage(eventPrev);
-    };
-    const eventNext = (eventNext) => {
-        nextImage(eventNext);
-    };
-
-    document.addEventListener('keydown', (eventPrev) => {
-        if (eventPrev.key === 'ArrowLeft') {
-            previousImage(eventPrev);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+            const id = document.getElementById('lightbox__next').dataset.id;
+            changeImage(id);
+        } else if (e.key === 'ArrowLeft') {
+            const id = document.getElementById('lightbox__prev').dataset.id;
+            changeImage(id);
         }
     });
 
-    document.addEventListener('keydown', (eventNext) => {
-        if (eventNext.key === 'ArrowRight') {
-            previousImage(eventNext);
-        }
+    prevButton.addEventListener('click', (e) => {
+        changeImage(e.target.dataset.id);
     });
-
-    prevButton.addEventListener('click', eventPrev);
-    nextButton.addEventListener('click', eventNext);
+    nextButton.addEventListener('click', (e) => {
+        changeImage(e.target.dataset.id);
+    });
 };
 
 /**
