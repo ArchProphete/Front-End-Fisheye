@@ -13,6 +13,10 @@ const getPhotographer = async (idFromUrl) => {
 
 getPhotographer(idFromUrl);
 
+/**
+ * CREATE AND DISPLAY HEADER OF A PHOTOGRAPHER
+ * @param idFind
+ */
 export const displayPhotographerHeader = (idFind) => {
     const section = document.getElementById('header_section');
 

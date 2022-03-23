@@ -187,25 +187,49 @@ export const lightboxControl = (
         elementLightBox.innerHTML = '';
     });
 
-    let mediaLightBox = document.getElementById('media_lightbox');
+    const mediaLightBox = document.getElementById('media_lightbox');
 
-    prevButton.addEventListener('click', (eventPrev) => {
+    const previousImage = (eventPrev) => {
         media_id = eventPrev.target.dataset.id;
-        let mediaObject = mediaObjectFunc(selectType, media_id);
+
+        const mediaObject = mediaObjectFunc(selectType, media_id);
 
         imgOrVideo(mediaObject, photographer, mediaLightBox);
         isTitleUndefined(mediaObject);
         getCurrentIdAndChangeDataset(selectType, media_id);
-    });
+    };
 
-    nextButton.addEventListener('click', (eventNext) => {
+    const nextImage = (eventNext) => {
         media_id = eventNext.target.dataset.id;
-        let mediaObject = mediaObjectFunc(selectType, media_id);
+
+        const mediaObject = mediaObjectFunc(selectType, media_id);
 
         imgOrVideo(mediaObject, photographer, mediaLightBox);
         isTitleUndefined(mediaObject);
         getCurrentIdAndChangeDataset(selectType, media_id);
+    };
+
+    const eventPrev = (eventPrev) => {
+        previousImage(eventPrev);
+    };
+    const eventNext = (eventNext) => {
+        nextImage(eventNext);
+    };
+
+    document.addEventListener('keydown', (eventPrev) => {
+        if (eventPrev.key === 'ArrowLeft') {
+            previousImage(eventPrev);
+        }
     });
+
+    document.addEventListener('keydown', (eventNext) => {
+        if (eventNext.key === 'ArrowRight') {
+            previousImage(eventNext);
+        }
+    });
+
+    prevButton.addEventListener('click', eventPrev);
+    nextButton.addEventListener('click', eventNext);
 };
 
 /**
@@ -217,7 +241,7 @@ export const lightboxControl = (
  */
 export const selectControl = (mediaSection, photographer, listOfMediaById) => {
     // By default, POPULARITY is select
-    let arrayByPopularity = listOfMediaById.sort((a, b) => {
+    const arrayByPopularity = listOfMediaById.sort((a, b) => {
         return b.likes > a.likes ? 1 : b.likes < a.likes ? -1 : 0;
     });
     getMediaAndHisLightboxBySelect(
@@ -228,7 +252,7 @@ export const selectControl = (mediaSection, photographer, listOfMediaById) => {
 
     // Select sort by TITRE
     document.getElementById('title').addEventListener('click', () => {
-        let arrayByTitle = listOfMediaById.sort((a, b) => {
+        const arrayByTitle = listOfMediaById.sort((a, b) => {
             if (a.title < b.title) {
                 return -1;
             }
@@ -246,7 +270,7 @@ export const selectControl = (mediaSection, photographer, listOfMediaById) => {
 
     // Select sort by DATE
     document.getElementById('date').addEventListener('click', () => {
-        let arrayByDate = listOfMediaById.sort((a, b) => {
+        const arrayByDate = listOfMediaById.sort((a, b) => {
             return new Date(b.date) - new Date(a.date);
         });
         getMediaAndHisLightboxBySelect(mediaSection, arrayByDate, photographer);
@@ -254,7 +278,7 @@ export const selectControl = (mediaSection, photographer, listOfMediaById) => {
 
     // Select sort by POPULARITY
     document.getElementById('popularity').addEventListener('click', () => {
-        let arrayByPopularity = listOfMediaById.sort((a, b) => {
+        const arrayByPopularity = listOfMediaById.sort((a, b) => {
             return b.likes > a.likes ? 1 : b.likes < a.likes ? -1 : 0;
         });
         getMediaAndHisLightboxBySelect(

@@ -1,4 +1,3 @@
-// LIGHTBOX CREATION
 import {
     createElementToCard,
     getNextId,
@@ -8,6 +7,12 @@ import {
     mediaObjectFunc,
 } from './functions.js';
 
+/**
+ * CREATE, DISPLAY LIGHTBOX AND CALL LIGHTBOX CONTROL
+ * @param media_id
+ * @param photographer
+ * @param selectType
+ */
 export const displayLightBox = (media_id, photographer, selectType) => {
     let mediaIndex = mediaIndexFunc(selectType, media_id);
     let mediaObject = mediaObjectFunc(selectType, media_id);

@@ -1,5 +1,9 @@
 import { createElementToCard } from './functions.js';
 
+/**
+ * CREATE AND DISPLAY MODAL CONTACT FORM
+ * @param idFind
+ */
 export const displayContactform = (idFind) => {
     const modal = document.getElementById('contact_modal');
 

@@ -4,7 +4,7 @@ import { getListOfMediaByID, selectControl } from './functions.js';
 import { displayBlockHeartAndPrice } from './displayBlockHeartAndPrice.js';
 
 /**
- * DISPLAY Photographer page with his header and his media
+ * DISPLAY PHOTOGRAPHER PAGE
  * @param data
  * @param idFromUrl
  */
@@ -12,16 +12,16 @@ export const displayPhotographerPage = (data, idFromUrl) => {
     const photographer = data.photographers.find(
         (photographer) => photographer.id == idFromUrl
     );
-    displayPhotographerHeader(photographer);
+
     const mediasData = data.media.filter(
         (media) => media.photographerId == idFromUrl
     );
-    displaySelect(mediasData);
 
     const listOfMediaById = getListOfMediaByID(mediasData, photographer);
+    const mediaSection = document.getElementById('medias');
+
+    displayPhotographerHeader(photographer);
+    displaySelect(mediasData);
     displayBlockHeartAndPrice(mediasData, photographer);
-
-    let mediaSection = document.getElementById('medias');
-
     selectControl(mediaSection, photographer, listOfMediaById);
 };

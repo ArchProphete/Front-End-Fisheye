@@ -1,7 +1,12 @@
 import { createElementToCard } from './functions.js';
 
+/**
+ * CREATE AND DISPLAY EVERY MEDIA OF A PHOTOGRAPHER
+ * @param media
+ * @param photographer
+ */
 export const displayMedia = (media, photographer) => {
-    let mediaSection = document.getElementById('medias');
+    const mediaSection = document.getElementById('medias');
 
     const elementFIGURE = createElementToCard('figure', null, null);
 
@@ -36,15 +41,11 @@ export const displayMedia = (media, photographer) => {
     }
 
     const elementP = createElementToCard('p', media.title, null);
-
     const elementSPAN = createElementToCard('span', media.likes, null);
-
     const elementI = createElementToCard('i', null, [
         { attribut: 'class', content: 'fas fa-heart' },
     ]);
-
     const elementFIGCAPTION = createElementToCard('figcaption', null, null);
-
     const elementARTICLE = createElementToCard('article', null, null);
     /**
      * Inject element from children to his parents

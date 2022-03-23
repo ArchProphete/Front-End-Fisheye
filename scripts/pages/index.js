@@ -19,7 +19,10 @@ export const displayPhotographers = (photographers) => {
     });
 };
 
-// Create photographers card
+/**
+ * CREATE AND DISPLAY HOME PAGE WITH ALL PHOTOGRAPHERS
+ * @param photographer
+ */
 export const displayPhotographer = (photographer) => {
     const elementSectionHeader = createElementToCard('section', null, [
         { attribut: 'id', content: 'photographer_section_' + photographer.id },
