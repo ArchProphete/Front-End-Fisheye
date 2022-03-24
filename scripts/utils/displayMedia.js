@@ -4,8 +4,9 @@ import { createElementToCard } from './functions.js';
  * CREATE AND DISPLAY EVERY MEDIA OF A PHOTOGRAPHER
  * @param mediaData
  * @param photographer
+ * @param index
  */
-export const displayMedia = (mediaData, photographer) => {
+export const displayMedia = (mediaData, photographer, index) => {
     const mediaSection = document.getElementById('medias');
 
     const elementFIGURE = createElementToCard('figure', null, null);
@@ -13,6 +14,7 @@ export const displayMedia = (mediaData, photographer) => {
     if (mediaData.image) {
         const elementMedia = createElementToCard('img', null, [
             { attribut: 'src', content: mediaData.image },
+            { attribut: 'alt', content: mediaData.title },
         ]);
 
         elementMedia.setAttribute(
@@ -46,7 +48,12 @@ export const displayMedia = (mediaData, photographer) => {
         { attribut: 'class', content: 'fas fa-heart' },
     ]);
     const elementFIGCAPTION = createElementToCard('figcaption', null, null);
-    const elementARTICLE = createElementToCard('article', null, null);
+    const elementARTICLE = createElementToCard('article', null, [
+        {
+            attribut: 'tabindex',
+            content: index,
+        },
+    ]);
 
     elementI.addEventListener('click', () => {
         const blockSpanHearth = document.getElementById('span-heart');

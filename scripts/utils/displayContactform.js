@@ -82,4 +82,14 @@ export const displayContactform = (idFind) => {
         const modal = document.getElementById('contact_modal');
         modal.style.display = 'none';
     });
+
+    // TODO A Debugger
+    elementButton.addEventListener('click', () => {
+        const modal = document.getElementById('contact_modal');
+        modal.style.display = 'none';
+        console.log(elementInputFirstName);
+        console.log(elementInputLastName);
+        console.log(elementInputEmail);
+        console.log(elementTextarea);
+    });
 };

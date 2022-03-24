@@ -14,20 +14,25 @@ const getPhotographers = async () => {
 getPhotographers();
 
 export const displayPhotographers = (photographers) => {
-    photographers.map((photographer) => {
-        displayPhotographer(photographer);
+    photographers.map((photographer, index) => {
+        displayPhotographer(photographer, index);
     });
 };
 
 /**
  * CREATE AND DISPLAY HOME PAGE WITH ALL PHOTOGRAPHERS
  * @param photographer
+ * @param index
  */
-export const displayPhotographer = (photographer) => {
+export const displayPhotographer = (photographer, index) => {
     const elementSectionHeader = createElementToCard('section', null, [
         { attribut: 'id', content: 'photographer_section_' + photographer.id },
     ]);
     const elementA = createElementToCard('a', null, [
+        {
+            attribut: 'tabindex',
+            content: index,
+        },
         {
             attribut: 'href',
             content: `photographer.html?id=${photographer.id}`,
@@ -39,6 +44,7 @@ export const displayPhotographer = (photographer) => {
 
     const elementIMG = createElementToCard('img', null, [
         { attribut: 'src', content: photographer.portrait },
+        { attribut: 'alt', content: photographer.name },
     ]);
 
     elementIMG.setAttribute(

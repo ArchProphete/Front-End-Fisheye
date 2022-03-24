@@ -52,7 +52,10 @@ export const displayPhotographerHeader = (idFind) => {
     elementMain.appendChild(elementDiv);
 
     section.appendChild(elementMain);
-    const elementIMG = createElementToCard('img', null, null);
+
+    const elementIMG = createElementToCard('img', null, [
+        { attribut: 'alt', content: idFind.name },
+    ]);
 
     elementIMG.setAttribute(
         'src',

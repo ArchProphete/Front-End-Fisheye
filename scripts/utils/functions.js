@@ -33,7 +33,7 @@ export const createElementToCard = (tag, data, attr) => {
  */
 export const mediaObjectFunc = (listOfMediaById, id) => {
     return listOfMediaById.find((media) => {
-        return media.id == id;
+        return media.id === id;
     });
 };
 
@@ -45,7 +45,7 @@ export const mediaObjectFunc = (listOfMediaById, id) => {
  */
 export const mediaIndexFunc = (listOfMediaById, id) => {
     return listOfMediaById.findIndex((media) => {
-        return media.id == id;
+        return media.id === id;
     });
 };
 
@@ -91,8 +91,8 @@ export const getNextId = (listOfMediaById, index) => {
  */
 export const getListOfMediaByID = (mediasData, photographer) => {
     let listOfMediaById = [];
-    mediasData.map((media) => {
-        displayMedia(media, photographer);
+    mediasData.map((media, index) => {
+        displayMedia(media, photographer, index);
         listOfMediaById.push(media);
     });
     return listOfMediaById;
@@ -110,8 +110,8 @@ export const getMediaAndHisLightboxBySelect = (
     photographer
 ) => {
     mediaSection.innerHTML = '';
-    selectType.map((media) => {
-        displayMedia(media, photographer);
+    selectType.map((media, index) => {
+        displayMedia(media, photographer, index);
     });
     const mediasSelectors = document.querySelectorAll('.media');
     mediasSelectors.forEach((media) => {
@@ -278,10 +278,4 @@ export const selectControl = (mediaSection, photographer, listOfMediaById) => {
             photographer
         );
     });
-};
-
-export const likesSum = (mediaData) => {
-    mediaData
-        .map((media) => media.likes)
-        .reduce((prev, curr) => prev + curr, 0);
 };

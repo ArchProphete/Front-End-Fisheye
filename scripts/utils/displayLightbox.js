@@ -41,7 +41,9 @@ export const displayLightBox = (media_id, photographer, selectType) => {
     let elementVIDEO;
 
     if (mediaObject.image) {
-        elementIMG = createElementToCard('img', null, null);
+        elementIMG = createElementToCard('img', null, [
+            { attribut: 'alt', content: mediaObject.title },
+        ]);
         elementIMG.setAttribute(
             'src',
             `/assets/images/Sample%20Photos/${photographer.name}/${mediaObject.image}`
