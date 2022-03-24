@@ -5,14 +5,19 @@ import { createElementToCard } from './functions.js';
  * @param mediaData
  * @param photographer
  */
+
 export const displayBlockHeartAndPrice = (mediaData, photographer) => {
     // Do the sum of all likes
     const likesSum = mediaData
         .map((media) => media.likes)
         .reduce((prev, curr) => prev + curr, 0);
+
     const elementDiv = document.getElementById('block-heart');
 
-    const elementSpanHeart = createElementToCard('span', likesSum, null);
+    const elementSpanHeart = createElementToCard('span', likesSum, [
+        { attribut: 'id', content: 'span-heart' },
+    ]);
+
     const elementIcon = createElementToCard('i', null, [
         { attribut: 'class', content: 'fa fa-heart' },
     ]);

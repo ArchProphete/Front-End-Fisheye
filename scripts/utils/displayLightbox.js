@@ -14,8 +14,8 @@ import {
  * @param selectType
  */
 export const displayLightBox = (media_id, photographer, selectType) => {
-    let mediaIndex = mediaIndexFunc(selectType, media_id);
-    let mediaObject = mediaObjectFunc(selectType, media_id);
+    const mediaIndex = mediaIndexFunc(selectType, media_id);
+    const mediaObject = mediaObjectFunc(selectType, media_id);
 
     const elementLightBox = document.getElementById('lightbox');
 
@@ -31,8 +31,8 @@ export const displayLightBox = (media_id, photographer, selectType) => {
         { attribut: 'id', content: 'lightbox__prev' },
     ]);
 
-    let prevId = getPrevId(selectType, mediaIndex);
-    let nextId = getNextId(selectType, mediaIndex);
+    const prevId = getPrevId(selectType, mediaIndex);
+    const nextId = getNextId(selectType, mediaIndex);
 
     elementPrevButton.setAttribute('data-id', prevId);
     elementNextButton.setAttribute('data-id', nextId);

@@ -4,7 +4,7 @@ import { createElementToCard } from './functions.js';
  * CREATE AND DISPLAY SELECTION OPTION TO SORT MEDIA ARRAY
  */
 export const displaySelect = () => {
-    let selectDiv = document.getElementById('selectId');
+    const selectDiv = document.getElementById('selectId');
 
     const elementInput = createElementToCard('input', null, [
         { attribut: 'class', content: 'css-select__selected' },

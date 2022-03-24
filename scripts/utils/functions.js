@@ -271,3 +271,9 @@ export const selectControl = (mediaSection, photographer, listOfMediaById) => {
         );
     });
 };
+
+export const likesSum = (mediaData) => {
+    mediaData
+        .map((media) => media.likes)
+        .reduce((prev, curr) => prev + curr, 0);
+};
