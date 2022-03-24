@@ -182,9 +182,17 @@ export const lightboxControl = (
     const prevButton = document.getElementById('lightbox__prev');
 
     elementLightBox.style.display = 'block';
+
     closeLightbox.addEventListener('click', () => {
         elementLightBox.style.display = 'none';
         elementLightBox.innerHTML = '';
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            elementLightBox.style.display = 'none';
+            elementLightBox.innerHTML = '';
+        }
     });
 
     const mediaLightBox = document.getElementById('media_lightbox');
