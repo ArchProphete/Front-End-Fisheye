@@ -33,7 +33,7 @@ export const createElementToCard = (tag, data, attr) => {
  */
 export const mediaObjectFunc = (listOfMediaById, id) => {
     return listOfMediaById.find((media) => {
-        return media.id === id;
+        return media.id == id;
     });
 };
 
@@ -45,7 +45,7 @@ export const mediaObjectFunc = (listOfMediaById, id) => {
  */
 export const mediaIndexFunc = (listOfMediaById, id) => {
     return listOfMediaById.findIndex((media) => {
-        return media.id === id;
+        return media.id == id;
     });
 };
 
@@ -81,21 +81,6 @@ export const getNextId = (listOfMediaById, index) => {
         next = listOfMediaById[parseInt(index) + 1].id;
     }
     return next;
-};
-
-/**
- * get list of media by id and return an array
- * @param mediasData
- * @param photographer
- * @returns {*[]}
- */
-export const getListOfMediaByID = (mediasData, photographer) => {
-    let listOfMediaById = [];
-    mediasData.map((media, index) => {
-        displayMedia(media, photographer, index);
-        listOfMediaById.push(media);
-    });
-    return listOfMediaById;
 };
 
 /**
@@ -228,11 +213,15 @@ export const lightboxControl = (
  *
  * @param mediaSection
  * @param photographer
- * @param listOfMediaById
+ * @param mediasOfAPhotographer
  */
-export const selectControl = (mediaSection, photographer, listOfMediaById) => {
+export const selectControl = (
+    mediaSection,
+    photographer,
+    mediasOfAPhotographer
+) => {
     // By default, POPULARITY is select
-    const arrayByPopularity = listOfMediaById.sort((a, b) => {
+    const arrayByPopularity = mediasOfAPhotographer.sort((a, b) => {
         return b.likes > a.likes ? 1 : b.likes < a.likes ? -1 : 0;
     });
     getMediaAndHisLightboxBySelect(
@@ -243,7 +232,7 @@ export const selectControl = (mediaSection, photographer, listOfMediaById) => {
 
     // Select sort by TITRE
     document.getElementById('title').addEventListener('click', () => {
-        const arrayByTitle = listOfMediaById.sort((a, b) => {
+        const arrayByTitle = mediasOfAPhotographer.sort((a, b) => {
             if (a.title < b.title) {
                 return -1;
             }
@@ -261,7 +250,7 @@ export const selectControl = (mediaSection, photographer, listOfMediaById) => {
 
     // Select sort by DATE
     document.getElementById('date').addEventListener('click', () => {
-        const arrayByDate = listOfMediaById.sort((a, b) => {
+        const arrayByDate = mediasOfAPhotographer.sort((a, b) => {
             return new Date(b.date) - new Date(a.date);
         });
         getMediaAndHisLightboxBySelect(mediaSection, arrayByDate, photographer);
@@ -269,7 +258,7 @@ export const selectControl = (mediaSection, photographer, listOfMediaById) => {
 
     // Select sort by POPULARITY
     document.getElementById('popularity').addEventListener('click', () => {
-        const arrayByPopularity = listOfMediaById.sort((a, b) => {
+        const arrayByPopularity = mediasOfAPhotographer.sort((a, b) => {
             return b.likes > a.likes ? 1 : b.likes < a.likes ? -1 : 0;
         });
         getMediaAndHisLightboxBySelect(

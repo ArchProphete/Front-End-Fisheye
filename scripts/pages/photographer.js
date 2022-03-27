@@ -22,11 +22,11 @@ export const displayPhotographerHeader = (idFind) => {
 
     const elementH1 = createElementToCard('h1', idFind.name, null);
     const elementH2 = createElementToCard(
-        'H2',
+        'h2',
         [idFind.city + ', ' + idFind.country],
         null
     );
-    const elementP = createElementToCard('P', idFind.tagline, null);
+    const elementP = createElementToCard('p', idFind.tagline, null);
 
     const elementLabel = createElementToCard('label', null, null);
     elementLabel.appendChild(elementH1);
@@ -52,7 +52,6 @@ export const displayPhotographerHeader = (idFind) => {
     elementMain.appendChild(elementDiv);
 
     section.appendChild(elementMain);
-
     const elementIMG = createElementToCard('img', null, [
         { attribut: 'alt', content: idFind.name },
     ]);

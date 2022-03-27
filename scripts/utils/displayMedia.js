@@ -8,7 +8,6 @@ import { createElementToCard } from './functions.js';
  */
 export const displayMedia = (mediaData, photographer, index) => {
     const mediaSection = document.getElementById('medias');
-
     const elementFIGURE = createElementToCard('figure', null, null);
 
     if (mediaData.image) {
@@ -23,7 +22,6 @@ export const displayMedia = (mediaData, photographer, index) => {
         );
 
         elementMedia.classList.add('media');
-
         elementMedia.setAttribute('data-id', `${mediaData.id}`);
         elementFIGURE.appendChild(elementMedia);
     } else if (mediaData.video) {
@@ -37,13 +35,12 @@ export const displayMedia = (mediaData, photographer, index) => {
         );
 
         elementMedia.classList.add('media');
-
         elementMedia.setAttribute('data-id', `${mediaData.id}`);
         elementFIGURE.appendChild(elementMedia);
     }
 
-    const elementP = createElementToCard('p', mediaData.title, null);
-    const elementSPAN = createElementToCard('span', mediaData.likes, null);
+    const elementP = createElementToCard('p', `${mediaData.title}`, null);
+    const elementSPAN = createElementToCard('span', `${mediaData.likes}`, null);
     const elementI = createElementToCard('i', null, [
         { attribut: 'class', content: 'fas fa-heart' },
     ]);
@@ -51,7 +48,7 @@ export const displayMedia = (mediaData, photographer, index) => {
     const elementARTICLE = createElementToCard('article', null, [
         {
             attribut: 'tabindex',
-            content: index,
+            content: `${index}`,
         },
     ]);
 

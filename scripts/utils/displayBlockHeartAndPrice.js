@@ -2,13 +2,15 @@ import { createElementToCard } from './functions.js';
 
 /**
  * CREATE AND DISPLAY BLOCK WITH THE PRICE AND SUM OF ALL LIKES
- * @param mediaData
+ * @param mediasOfAPhotographer
  * @param photographer
  */
-
-export const displayBlockHeartAndPrice = (mediaData, photographer) => {
+export const displayBlockHeartAndPrice = (
+    mediasOfAPhotographer,
+    photographer
+) => {
     // Do the sum of all likes
-    const likesSum = mediaData
+    const likesSum = mediasOfAPhotographer
         .map((media) => media.likes)
         .reduce((prev, curr) => prev + curr, 0);
 

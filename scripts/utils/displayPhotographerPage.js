@@ -1,27 +1,28 @@
 import { displaySelect } from './displaySelect.js';
 import { displayPhotographerHeader } from '../pages/photographer.js';
-import { getListOfMediaByID, selectControl } from './functions.js';
+import { selectControl } from './functions.js';
 import { displayBlockHeartAndPrice } from './displayBlockHeartAndPrice.js';
 
 /**
  * DISPLAY PHOTOGRAPHER PAGE
- * @param data
+ * @param allData
  * @param idFromUrl
  */
-export const displayPhotographerPage = (data, idFromUrl) => {
-    const photographer = data.photographers.find(
+export const displayPhotographerPage = (allData, idFromUrl) => {
+    // Find photographer by id in url
+    const photographer = allData.photographers.find(
         (photographer) => photographer.id == idFromUrl
     );
 
-    const mediasData = data.media.filter(
+    // Filter all data to get media by photographer
+    const mediasOfAPhotographer = allData.media.filter(
         (media) => media.photographerId == idFromUrl
     );
 
-    const listOfMediaById = getListOfMediaByID(mediasData, photographer);
     const mediaSection = document.getElementById('medias');
 
     displayPhotographerHeader(photographer);
-    displaySelect(mediasData);
-    displayBlockHeartAndPrice(mediasData, photographer);
-    selectControl(mediaSection, photographer, listOfMediaById);
+    displaySelect();
+    displayBlockHeartAndPrice(mediasOfAPhotographer, photographer);
+    selectControl(mediaSection, photographer, mediasOfAPhotographer);
 };

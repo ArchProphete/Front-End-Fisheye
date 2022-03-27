@@ -31,7 +31,7 @@ export const displayPhotographer = (photographer, index) => {
     const elementA = createElementToCard('a', null, [
         {
             attribut: 'tabindex',
-            content: index,
+            content: `${index}`,
         },
         {
             attribut: 'href',
