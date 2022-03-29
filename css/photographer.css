@@ -192,6 +192,7 @@ body main #medias article figure figcaption span i {
   left: 0;
   padding: 20px;
   background-color: #FFffffbb;
+  width: 70%;
 }
 #contact_modal .modal {
   border-radius: 5px;

@@ -2,7 +2,7 @@ import { displayLightBox } from './displayLightbox.js';
 import { displayMedia } from './displayMedia.js';
 
 /**
- * Set attribute if you need it
+ * Set attribute and his content to an element
  * @param element
  * @param attr
  */
@@ -11,7 +11,7 @@ export const setAttr = (element, attr) => {
 };
 
 /**
- * function to create cards used for each tags
+ * Create card with his tafn his data and attribute and content
  * @param tag name of the tag
  * @param data Data to inject
  * @param attr Call setAttr if you need attribut
@@ -168,18 +168,6 @@ export const lightboxControl = (
 
     elementLightBox.style.display = 'block';
 
-    closeLightbox.addEventListener('click', () => {
-        elementLightBox.style.display = 'none';
-        elementLightBox.innerHTML = '';
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            elementLightBox.style.display = 'none';
-            elementLightBox.innerHTML = '';
-        }
-    });
-
     const mediaLightBox = document.getElementById('media_lightbox');
 
     const changeImage = (media_id) => {
@@ -188,6 +176,11 @@ export const lightboxControl = (
         imgOrVideo(mediaObject, photographer, mediaLightBox);
         isTitleUndefined(mediaObject);
         getCurrentIdAndChangeDataset(selectType, media_id);
+    };
+
+    const closeModal = (elementLightBox) => {
+        elementLightBox.style.display = 'none';
+        elementLightBox.innerHTML = '';
     };
 
     document.addEventListener('keydown', (e) => {
@@ -205,6 +198,16 @@ export const lightboxControl = (
     });
     nextButton.addEventListener('click', (e) => {
         changeImage(e.target.dataset.id);
+    });
+
+    closeLightbox.addEventListener('click', () => {
+        closeModal(elementLightBox);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModal(elementLightBox);
+        }
     });
 };
 

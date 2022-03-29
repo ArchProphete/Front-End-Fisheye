@@ -16,7 +16,9 @@ export const displayContactform = (idFind) => {
     elementDivTitle.appendChild(elementH3);
 
     const elementIMG = createElementToCard('img', null, null);
-    elementIMG.setAttribute('src', 'assets/icons/close.svg');
+    elementIMG.setAttribute('src', 'assets/icons/close.svg', [
+        { attribut: 'aria-label', content: 'Fermer' },
+    ]);
 
     const elementHeader = createElementToCard('header', null, null);
     elementHeader.appendChild(elementDivTitle);
@@ -59,6 +61,7 @@ export const displayContactform = (idFind) => {
 
     const elementButton = createElementToCard('button', 'Envoyer', [
         { attribut: 'class', content: 'contact_button' },
+        { attribut: 'aria-label', content: 'Envoyer' },
     ]);
 
     const elementForm = createElementToCard('form', null, null);

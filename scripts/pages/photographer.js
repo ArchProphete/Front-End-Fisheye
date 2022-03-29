@@ -37,6 +37,7 @@ export const displayPhotographerHeader = (idFind) => {
 
     const elementButton = createElementToCard('button', 'Contactez-moi', [
         { attribut: 'class', content: 'contact_button' },
+        { attribut: 'aria-label', content: 'Contactez-moi' },
     ]);
 
     // DISPLAY Contact Form onClick
