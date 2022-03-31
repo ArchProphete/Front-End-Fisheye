@@ -192,18 +192,19 @@ body main #medias article figure figcaption span i {
   left: 0;
   padding: 20px;
   background-color: #FFffffbb;
-  width: 70%;
+  overflow: auto;
+  z-index: 1;
 }
 #contact_modal .modal {
   border-radius: 5px;
   background-color: #D3573C;
-  width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
   padding: 35px;
-  margin: auto;
+  margin: 5% auto;
+  max-width: 500px;
+  overflow: hidden;
 }
 #contact_modal .modal header {
   display: flex;

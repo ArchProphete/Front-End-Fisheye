@@ -150,6 +150,29 @@ export const isTitleUndefined = (mediaObject) => {
 };
 
 /**
+ * Close modal (Lightbox or caontact form
+ * @param element
+ */
+export const closeModal = (element) => {
+    element.style.display = 'none';
+    element.innerHTML = '';
+};
+
+/**
+ * Get content of the contact form and log it
+ * @param firstname
+ * @param lastname
+ * @param email
+ * @param message
+ */
+export const logContactFormContent = (firstname, lastname, email, message) => {
+    console.log(firstname);
+    console.log(lastname);
+    console.log(email);
+    console.log(message);
+};
+
+/**
  * LIGHTBOX CONTROL
  * @param selectType
  * @param media_id
@@ -176,11 +199,6 @@ export const lightboxControl = (
         imgOrVideo(mediaObject, photographer, mediaLightBox);
         isTitleUndefined(mediaObject);
         getCurrentIdAndChangeDataset(selectType, media_id);
-    };
-
-    const closeModal = (elementLightBox) => {
-        elementLightBox.style.display = 'none';
-        elementLightBox.innerHTML = '';
     };
 
     document.addEventListener('keydown', (e) => {
