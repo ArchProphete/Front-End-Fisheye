@@ -29,9 +29,6 @@ export const displaySelect = () => {
         { attribut: 'class', content: 'css-select__dropdown' },
     ]);
 
-    elementDiv.appendChild(elementButtonDate);
-    elementDiv.appendChild(elementButtonTitle);
-
-    selectDiv.appendChild(elementInput);
-    selectDiv.appendChild(elementDiv);
+    elementDiv.append(elementButtonDate, elementButtonTitle);
+    selectDiv.append(elementInput, elementDiv);
 };

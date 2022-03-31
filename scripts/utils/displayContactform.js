@@ -12,17 +12,15 @@ export const displayContactform = (idFind) => {
     const elementH3 = createElementToCard('h3', idFind.name, null);
 
     const elementDivTitle = createElementToCard('div', null, null);
-    elementDivTitle.appendChild(elementH2);
-    elementDivTitle.appendChild(elementH3);
+    elementDivTitle.append(elementH2, elementH3);
 
-    const elementIMG = createElementToCard('img', null, null);
-    elementIMG.setAttribute('src', 'assets/icons/close.svg', [
+    const elementIMG = createElementToCard('img', null, [
+        { attribut: 'src', content: 'assets/icons/close.svg' },
         { attribut: 'aria-label', content: 'Fermer' },
     ]);
 
     const elementHeader = createElementToCard('header', null, null);
-    elementHeader.appendChild(elementDivTitle);
-    elementHeader.appendChild(elementIMG);
+    elementHeader.append(elementDivTitle, elementIMG);
 
     // Form FirstName
     const elementInputFirstName = createElementToCard('input', null, null);
@@ -56,8 +54,7 @@ export const displayContactform = (idFind) => {
     const elementTextarea = createElementToCard('textarea', null, null);
 
     const elementDivTextarea = createElementToCard('div', null, null);
-    elementDivTextarea.appendChild(elementLabelMessage);
-    elementDivTextarea.appendChild(elementTextarea);
+    elementDivTextarea.append(elementLabelMessage, elementTextarea);
 
     const elementButton = createElementToCard('button', 'Envoyer', [
         { attribut: 'class', content: 'contact_button' },
@@ -65,17 +62,18 @@ export const displayContactform = (idFind) => {
     ]);
 
     const elementForm = createElementToCard('form', null, null);
-    elementForm.appendChild(elementDivFirstName);
-    elementForm.appendChild(elementDivLastName);
-    elementForm.appendChild(elementDivEmail);
-    elementForm.appendChild(elementDivTextarea);
-    elementForm.appendChild(elementButton);
+    elementForm.append(
+        elementDivFirstName,
+        elementDivLastName,
+        elementDivEmail,
+        elementDivTextarea,
+        elementButton
+    );
 
     const elementGlobalDiv = createElementToCard('div', null, [
         { attribut: 'class', content: 'modal' },
     ]);
-    elementGlobalDiv.appendChild(elementHeader);
-    elementGlobalDiv.appendChild(elementForm);
+    elementGlobalDiv.append(elementHeader, elementForm);
 
     modal.appendChild(elementGlobalDiv);
 

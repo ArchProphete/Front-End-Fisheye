@@ -43,15 +43,12 @@ export const displayPhotographer = (photographer, index) => {
     document.getElementById('main').appendChild(elementA);
 
     const elementIMG = createElementToCard('img', null, [
-        { attribut: 'src', content: photographer.portrait },
+        {
+            attribut: 'src',
+            content: `/assets/images/Sample%20Photos/Photographers%20ID%20Photos/${photographer.portrait}`,
+        },
         { attribut: 'alt', content: photographer.name },
     ]);
-
-    elementIMG.setAttribute(
-        'src',
-        '/assets/images/Sample%20Photos/Photographers%20ID%20Photos/' +
-            photographer.portrait
-    );
 
     const elementP = createElementToCard('p', photographer.tagline, null);
     const elementH2 = createElementToCard('h2', photographer.name, null);
@@ -70,15 +67,9 @@ export const displayPhotographer = (photographer, index) => {
     const elementFIGURE = createElementToCard('figure', null, null);
     const elementARTICLE = createElementToCard('article', null, null);
 
-    elementFIGCAPTION.appendChild(elementH2);
-    elementFIGCAPTION.appendChild(elementH3);
-    elementFIGCAPTION.appendChild(elementP);
-    elementFIGCAPTION.appendChild(elementSPAN);
-
-    elementFIGURE.appendChild(elementIMG);
-    elementFIGURE.appendChild(elementFIGCAPTION);
+    elementFIGCAPTION.append(elementH2, elementH3, elementP, elementSPAN);
+    elementFIGURE.append(elementIMG, elementFIGCAPTION);
 
     elementARTICLE.appendChild(elementFIGURE);
-
     elementSectionHeader.appendChild(elementARTICLE);
 };

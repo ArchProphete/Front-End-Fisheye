@@ -31,6 +31,5 @@ export const displayBlockHeartAndPrice = (
         null
     );
 
-    elementDiv.appendChild(elementSpanHeart);
-    elementDiv.appendChild(elementSpanPrice);
+    elementDiv.append(elementSpanHeart, elementSpanPrice);
 };

@@ -23,42 +23,41 @@ export const displayLightBox = (media_id, photographer, selectType) => {
         { attribut: 'id', content: 'lightbox__close' },
     ]);
 
-    const elementNextButton = createElementToCard('button', null, [
-        { attribut: 'id', content: 'lightbox__next' },
-    ]);
-
-    const elementPrevButton = createElementToCard('button', null, [
-        { attribut: 'id', content: 'lightbox__prev' },
-    ]);
-
     const prevId = getPrevId(selectType, mediaIndex);
     const nextId = getNextId(selectType, mediaIndex);
 
-    elementPrevButton.setAttribute('data-id', prevId);
-    elementNextButton.setAttribute('data-id', nextId);
+    const elementPrevButton = createElementToCard('button', null, [
+        { attribut: 'id', content: 'lightbox__prev' },
+        { attribut: 'data-id', content: prevId },
+    ]);
+
+    const elementNextButton = createElementToCard('button', null, [
+        { attribut: 'id', content: 'lightbox__next' },
+        { attribut: 'data-id', content: nextId },
+    ]);
 
     let elementIMG;
     let elementVIDEO;
 
     if (mediaObject.image) {
         elementIMG = createElementToCard('img', null, [
+            {
+                attribut: 'src',
+                content: `/assets/images/Sample%20Photos/${photographer.name}/${mediaObject.image}`,
+            },
             { attribut: 'alt', content: mediaObject.title },
+            { attribut: 'id', content: 'media_lightbox' },
         ]);
-        elementIMG.setAttribute(
-            'src',
-            `/assets/images/Sample%20Photos/${photographer.name}/${mediaObject.image}`
-        );
-        elementIMG.setAttribute('id', 'media_lightbox');
         elementLightBox.appendChild(elementIMG);
     } else if (mediaObject.video) {
         elementVIDEO = createElementToCard('video', null, [
+            {
+                attribut: 'src',
+                content: `/assets/images/Sample%20Photos/${photographer.name}/${mediaObject.video}`,
+            },
+            { attribut: 'id', content: 'media_lightbox' },
             { attribut: 'controls' },
         ]);
-        elementVIDEO.setAttribute(
-            'src',
-            `/assets/images/Sample%20Photos/${photographer.name}/${mediaObject.video}`
-        );
-        elementVIDEO.setAttribute('id', 'media_lightbox');
         elementLightBox.appendChild(elementVIDEO);
     }
 
@@ -66,10 +65,12 @@ export const displayLightBox = (media_id, photographer, selectType) => {
         { attribut: 'id', content: 'title_lightbox' },
     ]);
 
-    elementLightBox.appendChild(elementCloseButton);
-    elementLightBox.appendChild(elementNextButton);
-    elementLightBox.appendChild(elementPrevButton);
-    elementLightBox.appendChild(elementP);
+    elementLightBox.append(
+        elementCloseButton,
+        elementNextButton,
+        elementPrevButton,
+        elementP
+    );
 
     // LIGHTBOX CONTROL
     lightboxControl(selectType, media_id, photographer, elementLightBox);

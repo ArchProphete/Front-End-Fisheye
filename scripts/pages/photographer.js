@@ -2,7 +2,9 @@ import { createElementToCard } from '../utils/functions.js';
 import { displayPhotographerPage } from '../utils/displayPhotographerPage.js';
 import { displayContactform } from '../utils/displayContactform.js';
 
+// Get the url content
 const urlParsed = new URL(window.location.href);
+// Parse and get the id value
 const idFromUrl = urlParsed.searchParams.get('id');
 
 const getPhotographer = async (idFromUrl) => {
@@ -27,12 +29,9 @@ export const displayPhotographerHeader = (idFind) => {
         null
     );
     const elementP = createElementToCard('p', idFind.tagline, null);
-
     const elementLabel = createElementToCard('label', null, null);
-    elementLabel.appendChild(elementH1);
-    elementLabel.appendChild(elementH2);
-    elementLabel.appendChild(elementP);
 
+    elementLabel.append(elementH1, elementH2, elementP);
     section.appendChild(elementLabel);
 
     const elementButton = createElementToCard('button', 'Contactez-moi', [
@@ -54,12 +53,12 @@ export const displayPhotographerHeader = (idFind) => {
 
     section.appendChild(elementMain);
     const elementIMG = createElementToCard('img', null, [
+        {
+            attribut: 'src',
+            content: `/assets/images/Sample%20Photos/Photographers%20ID%20Photos/${idFind.portrait}`,
+        },
         { attribut: 'alt', content: idFind.name },
     ]);
 
-    elementIMG.setAttribute(
-        'src',
-        `/assets/images/Sample%20Photos/Photographers%20ID%20Photos/${idFind.portrait}`
-    );
     section.appendChild(elementIMG);
 };

@@ -12,30 +12,27 @@ export const displayMedia = (mediaData, photographer, index) => {
 
     if (mediaData.image) {
         const elementMedia = createElementToCard('img', null, [
-            { attribut: 'src', content: mediaData.image },
+            {
+                attribut: 'src',
+                content: `/assets/images/Sample%20Photos/${photographer.name}/${mediaData.image}`,
+            },
             { attribut: 'alt', content: mediaData.title },
+            { attribut: 'data-id', content: `${mediaData.id}` },
         ]);
 
-        elementMedia.setAttribute(
-            'src',
-            `/assets/images/Sample%20Photos/${photographer.name}/${mediaData.image}`
-        );
-
         elementMedia.classList.add('media');
-        elementMedia.setAttribute('data-id', `${mediaData.id}`);
         elementFIGURE.appendChild(elementMedia);
     } else if (mediaData.video) {
         const elementMedia = createElementToCard('video', null, [
+            {
+                attribut: 'src',
+                content: `/assets/images/Sample%20Photos/${photographer.name}/${mediaData.video}`,
+            },
             { attribut: 'controls' },
+            { attribut: 'data-id', content: `${mediaData.id}` },
         ]);
 
-        elementMedia.setAttribute(
-            'src',
-            `/assets/images/Sample%20Photos/${photographer.name}/${mediaData.video}`
-        );
-
         elementMedia.classList.add('media');
-        elementMedia.setAttribute('data-id', `${mediaData.id}`);
         elementFIGURE.appendChild(elementMedia);
     }
 
@@ -60,13 +57,9 @@ export const displayMedia = (mediaData, photographer, index) => {
     });
 
     // Inject element from children to his parents
-    elementFIGCAPTION.appendChild(elementP);
-    elementFIGCAPTION.appendChild(elementSPAN);
+    elementFIGCAPTION.append(elementP, elementSPAN);
     elementSPAN.appendChild(elementI);
-
     elementFIGURE.appendChild(elementFIGCAPTION);
-
     elementARTICLE.appendChild(elementFIGURE);
-
     mediaSection.appendChild(elementARTICLE);
 };
