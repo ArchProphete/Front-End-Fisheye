@@ -17,12 +17,14 @@ export const displaySelect = () => {
         { attribut: 'class', content: 'css-select__option' },
         { attribut: 'id', content: 'date' },
         { attribut: 'type', content: 'button' },
+        { attribut: 'tabindex', content: '4' },
     ]);
 
     const elementButtonTitle = createElementToCard('button', 'Titre', [
         { attribut: 'class', content: 'css-select__option' },
         { attribut: 'id', content: 'title' },
         { attribut: 'type', content: 'button' },
+        { attribut: 'tabindex', content: '5' },
     ]);
 
     const elementDiv = createElementToCard('div', null, [

@@ -48,6 +48,7 @@ export const displayLightBox = (media_id, photographer, selectType) => {
             { attribut: 'alt', content: mediaObject.title },
             { attribut: 'id', content: 'media_lightbox' },
         ]);
+
         elementLightBox.appendChild(elementIMG);
     } else if (mediaObject.video) {
         elementVIDEO = createElementToCard('video', null, [
@@ -58,6 +59,7 @@ export const displayLightBox = (media_id, photographer, selectType) => {
             { attribut: 'id', content: 'media_lightbox' },
             { attribut: 'controls' },
         ]);
+
         elementLightBox.appendChild(elementVIDEO);
     }
 

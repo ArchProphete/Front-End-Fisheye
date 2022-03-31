@@ -14,8 +14,8 @@ const getPhotographers = async () => {
 getPhotographers();
 
 export const displayPhotographers = (photographers) => {
-    photographers.map((photographer, index) => {
-        displayPhotographer(photographer, index);
+    photographers.map((photographer) => {
+        displayPhotographer(photographer);
     });
 };
 
@@ -24,15 +24,11 @@ export const displayPhotographers = (photographers) => {
  * @param photographer
  * @param index
  */
-export const displayPhotographer = (photographer, index) => {
+export const displayPhotographer = (photographer) => {
     const elementSectionHeader = createElementToCard('section', null, [
         { attribut: 'id', content: 'photographer_section_' + photographer.id },
     ]);
     const elementA = createElementToCard('a', null, [
-        {
-            attribut: 'tabindex',
-            content: `${index}`,
-        },
         {
             attribut: 'href',
             content: `photographer.html?id=${photographer.id}`,

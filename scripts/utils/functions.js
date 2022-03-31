@@ -96,7 +96,7 @@ export const getMediaAndHisLightboxBySelect = (
 ) => {
     mediaSection.innerHTML = '';
     selectType.map((media, index) => {
-        displayMedia(media, photographer, index);
+        displayMedia(media, photographer);
     });
     const mediasSelectors = document.querySelectorAll('.media');
     mediasSelectors.forEach((media) => {
@@ -196,6 +196,7 @@ export const lightboxControl = (
     prevButton.addEventListener('click', (e) => {
         changeImage(e.target.dataset.id);
     });
+
     nextButton.addEventListener('click', (e) => {
         changeImage(e.target.dataset.id);
     });
@@ -233,7 +234,7 @@ export const selectControl = (
         photographer
     );
 
-    // Select sort by TITRE
+    // Select sort by TITLE
     document.getElementById('title').addEventListener('click', () => {
         const arrayByTitle = mediasOfAPhotographer.sort((a, b) => {
             if (a.title < b.title) {
