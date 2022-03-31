@@ -39,10 +39,13 @@ export const displayMedia = (mediaData, photographer) => {
         `${mediaData.title ? mediaData.title : ''}`,
         null
     );
+
     const elementSPAN = createElementToCard('span', `${mediaData.likes}`, null);
     const elementI = createElementToCard('i', null, [
         { attribut: 'class', content: 'fas fa-heart' },
     ]);
+    const elementDiv = createElementToCard('div', null, null);
+
     const elementFIGCAPTION = createElementToCard('figcaption', null, null);
     const elementARTICLE = createElementToCard('article', null, null);
 
@@ -54,8 +57,8 @@ export const displayMedia = (mediaData, photographer) => {
     });
 
     // Inject element from children to his parents
-    elementFIGCAPTION.append(elementP, elementSPAN);
-    elementSPAN.appendChild(elementI);
+    elementDiv.append(elementSPAN, elementI);
+    elementFIGCAPTION.append(elementP, elementDiv);
     elementFIGURE.appendChild(elementFIGCAPTION);
     elementARTICLE.appendChild(elementFIGURE);
     mediaSection.appendChild(elementARTICLE);

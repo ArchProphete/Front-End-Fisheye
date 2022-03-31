@@ -179,7 +179,7 @@ body main #medias article figure figcaption {
   color: #901C1C;
   height: 10%;
 }
-body main #medias article figure figcaption span i {
+body main #medias article figure figcaption div i {
   margin-left: 5px;
 }
 
@@ -317,6 +317,7 @@ body main #medias article figure figcaption span i {
 }
 
 #block-heart {
+  display: flex;
   background-color: #D3573C;
   position: fixed;
   right: 0;
@@ -325,11 +326,8 @@ body main #medias article figure figcaption span i {
   border-radius: 3px;
   margin-right: 20px;
 }
-#block-heart span:first-child i {
-  margin-left: 5px;
-}
-#block-heart span:last-child {
-  margin-left: 10px;
+#block-heart span {
+  margin: 0 3px 0 3px;
 }
 
 /*# sourceMappingURL=photographer.css.map */

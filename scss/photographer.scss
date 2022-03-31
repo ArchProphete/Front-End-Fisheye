@@ -206,12 +206,15 @@ body {
                         width: 100%;
                         color: $primary-color;
                         height: 10%;
+                        div {
+                            span {
 
-                        span {
+                            }
                             i {
                                 margin-left: 5px;
                             }
                         }
+
                     }
                 }
             }
@@ -366,6 +369,7 @@ body {
 }
 
 #block-heart {
+    display: flex;
     background-color: $secondary-color;
     position: fixed;
     right: 0;
@@ -373,12 +377,7 @@ body {
     padding: 11px;
     border-radius: 3px;
     margin-right: 20px;
-    span:first-child i {
-        margin-left: 5px;
-    }
     span {
-        &:last-child {
-            margin-left: 10px;
-        }
+        margin: 0 3px 0 3px;
     }
 }

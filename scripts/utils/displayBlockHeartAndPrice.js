@@ -16,6 +16,8 @@ export const displayBlockHeartAndPrice = (
 
     const elementDiv = document.getElementById('block-heart');
 
+    const elementGroupeDiv = createElementToCard('div', null, null);
+
     const elementSpanHeart = createElementToCard('span', likesSum, [
         { attribut: 'id', content: 'span-heart' },
     ]);
@@ -23,7 +25,6 @@ export const displayBlockHeartAndPrice = (
     const elementIcon = createElementToCard('i', null, [
         { attribut: 'class', content: 'fa fa-heart' },
     ]);
-    elementSpanHeart.appendChild(elementIcon);
 
     const elementSpanPrice = createElementToCard(
         'span',
@@ -31,5 +32,7 @@ export const displayBlockHeartAndPrice = (
         null
     );
 
-    elementDiv.append(elementSpanHeart, elementSpanPrice);
+    elementGroupeDiv.append(elementIcon, elementSpanPrice);
+
+    elementDiv.append(elementSpanHeart, elementGroupeDiv);
 };

@@ -22,7 +22,6 @@ export const displayPhotographers = (photographers) => {
 /**
  * CREATE AND DISPLAY HOME PAGE WITH ALL PHOTOGRAPHERS
  * @param photographer
- * @param index
  */
 export const displayPhotographer = (photographer) => {
     const elementSectionHeader = createElementToCard('section', null, [
