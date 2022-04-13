@@ -1,4 +1,4 @@
-import { addOneLike, createElementToCard } from './functions.js';
+import { addOneLike, createElementToCard } from '../utils/functions.js';
 import { displayLightBox } from './displayLightbox.js';
 
 /**

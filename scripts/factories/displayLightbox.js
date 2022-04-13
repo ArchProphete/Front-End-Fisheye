@@ -6,7 +6,7 @@ import {
     lightboxControl,
     mediaIndexFunc,
     mediaObjectFunc,
-} from './functions.js';
+} from '../utils/functions.js';
 
 /**
  * CREATE, DISPLAY LIGHTBOX AND CALL LIGHTBOX CONTROL

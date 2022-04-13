@@ -1,5 +1,8 @@
-import { createElementToCard, logContactFormContent } from './functions.js';
-import { closeModal } from './functions.js';
+import {
+    createElementToCard,
+    logContactFormContent,
+} from '../utils/functions.js';
+import { closeModal } from '../utils/functions.js';
 
 /**
  * CREATE AND DISPLAY MODAL CONTACT FORM

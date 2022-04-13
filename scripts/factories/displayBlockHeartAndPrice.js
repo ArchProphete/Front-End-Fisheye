@@ -1,4 +1,4 @@
-import { createElementToCard } from './functions.js';
+import { createElementToCard } from '../utils/functions.js';
 
 /**
  * CREATE AND DISPLAY BLOCK WITH THE PRICE AND SUM OF ALL LIKES

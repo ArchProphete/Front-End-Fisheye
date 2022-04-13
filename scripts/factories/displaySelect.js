@@ -1,4 +1,4 @@
-import { createElementToCard } from './functions.js';
+import { createElementToCard } from '../utils/functions.js';
 
 /**
  * CREATE AND DISPLAY SELECTION OPTION TO SORT MEDIA ARRAY

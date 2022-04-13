@@ -1,5 +1,5 @@
-import { displayLightBox } from './displayLightbox.js';
-import { displayMedia } from './displayMedia.js';
+import { displayLightBox } from '../factories/displayLightbox.js';
+import { displayMedia } from '../factories/displayMedia.js';
 
 /**
  * Set attribute and his content to an element

@@ -1,6 +1,6 @@
 import { displaySelect } from './displaySelect.js';
 import { displayPhotographerHeader } from '../pages/photographer.js';
-import { selectControl } from './functions.js';
+import { selectControl } from '../utils/functions.js';
 import { displayBlockHeartAndPrice } from './displayBlockHeartAndPrice.js';
 
 /**

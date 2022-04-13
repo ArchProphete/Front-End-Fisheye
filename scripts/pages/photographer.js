@@ -1,6 +1,6 @@
 import { createElementToCard } from '../utils/functions.js';
-import { displayPhotographerPage } from '../utils/displayPhotographerPage.js';
-import { displayContactform } from '../utils/displayContactform.js';
+import { displayPhotographerPage } from '../factories/displayPhotographerPage.js';
+import { displayContactform } from '../factories/displayContactform.js';
 
 // Get the url content
 const urlParsed = new URL(window.location.href);
