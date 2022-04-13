@@ -28,6 +28,11 @@ export const createElementToCard = (tag, data, attr) => {
     return element;
 };
 
+export const addOneLike = (blockSpanHearth, elementSPAN, mediaData) => {
+    elementSPAN.innerHTML++;
+    blockSpanHearth.textContent++;
+};
+
 /**
  * Find the object of Media selected
  */
@@ -95,8 +100,8 @@ export const getMediaAndHisLightboxBySelect = (
     photographer
 ) => {
     mediaSection.innerHTML = '';
-    selectType.map((media, index) => {
-        displayMedia(media, photographer);
+    selectType.map((media) => {
+        displayMedia(media, photographer, selectType);
     });
     const mediasSelectors = document.querySelectorAll('.media');
     mediasSelectors.forEach((media) => {
@@ -110,13 +115,32 @@ export const getMediaAndHisLightboxBySelect = (
  *  Get if the Json media is an image or a video and return the good path
  * @param mediaObject
  * @param photographer
- * @param mediaLightBox
+ * @param elementLightBox
  */
-export const imgOrVideo = (mediaObject, photographer, mediaLightBox) => {
+export const imgOrVideo = (mediaObject, photographer, elementLightBox) => {
+    let elementIMG;
+    let elementVIDEO;
+
     if (mediaObject.image) {
-        mediaLightBox.src = `/assets/images/Sample%20Photos/${photographer.name}/${mediaObject.image}`;
+        elementIMG = createElementToCard('img', null, [
+            {
+                attribut: 'src',
+                content: `/assets/images/Sample%20Photos/${photographer.name}/${mediaObject.image}`,
+            },
+            { attribut: 'alt', content: mediaObject.title },
+            { attribut: 'id', content: 'media_lightbox' },
+        ]);
+        elementLightBox.appendChild(elementIMG);
     } else if (mediaObject.video) {
-        mediaLightBox.src = `/assets/images/Sample%20Photos/${photographer.name}/${mediaObject.video}`;
+        elementVIDEO = createElementToCard('video', null, [
+            {
+                attribut: 'src',
+                content: `/assets/images/Sample%20Photos/${photographer.name}/${mediaObject.video}`,
+            },
+            { attribut: 'id', content: 'media_lightbox' },
+            { attribut: 'controls' },
+        ]);
+        elementLightBox.appendChild(elementVIDEO);
     }
 };
 
@@ -149,6 +173,12 @@ export const isTitleUndefined = (mediaObject) => {
     }
 };
 
+const deleteCurrentImage = () => {
+    const mediaLightBox = document.getElementById('media_lightbox');
+    mediaLightBox.style.display = 'none';
+    mediaLightBox.remove();
+};
+
 /**
  * Close modal (Lightbox or caontact form
  * @param element
@@ -166,10 +196,10 @@ export const closeModal = (element) => {
  * @param message
  */
 export const logContactFormContent = (firstname, lastname, email, message) => {
-    console.log(firstname);
-    console.log(lastname);
-    console.log(email);
-    console.log(message);
+    console.log(`Votre prénom: ${firstname}`);
+    console.log(`Votre nom: ${lastname}`);
+    console.log(`Votre email: ${email}`);
+    console.log(`Votre message: ${message}`);
 };
 
 /**
@@ -191,12 +221,10 @@ export const lightboxControl = (
 
     elementLightBox.style.display = 'block';
 
-    const mediaLightBox = document.getElementById('media_lightbox');
-
     const changeImage = (media_id) => {
+        deleteCurrentImage();
         const mediaObject = mediaObjectFunc(selectType, media_id);
-
-        imgOrVideo(mediaObject, photographer, mediaLightBox);
+        imgOrVideo(mediaObject, photographer, elementLightBox);
         isTitleUndefined(mediaObject);
         getCurrentIdAndChangeDataset(selectType, media_id);
     };

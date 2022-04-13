@@ -18,7 +18,7 @@ export const displayContactform = (idFind) => {
     const elementIMG = createElementToCard('img', null, [
         { attribut: 'src', content: 'assets/icons/close.svg' },
         { attribut: 'aria-label', content: 'Fermer' },
-        { attribut: 'tabindex', content: '6' },
+        { attribut: 'tabindex', content: '2' },
     ]);
 
     const elementHeader = createElementToCard('header', null, null);
@@ -27,7 +27,7 @@ export const displayContactform = (idFind) => {
     // Form FirstName
     const elementInputFirstName = createElementToCard('input', null, [
         { attribut: 'id', content: 'first' },
-        { attribut: 'tabindex', content: '1' },
+        { attribut: 'tabindex', content: '2' },
     ]);
     const elementLabelFirstName = createElementToCard('label', 'Prénom', null);
     elementLabelFirstName.appendChild(elementInputFirstName);
@@ -49,7 +49,7 @@ export const displayContactform = (idFind) => {
     // Form Email
     const elementInputEmail = createElementToCard('input', null, [
         { attribut: 'id', content: 'email' },
-        { attribut: 'tabindex', content: '3' },
+        { attribut: 'tabindex', content: '2' },
     ]);
     const elementLabelEmail = createElementToCard('label', 'Email', null);
     elementLabelEmail.appendChild(elementInputEmail);
@@ -64,7 +64,7 @@ export const displayContactform = (idFind) => {
     );
     const elementTextarea = createElementToCard('textarea', null, [
         { attribut: 'id', content: 'message' },
-        { attribut: 'tabindex', content: '4' },
+        { attribut: 'tabindex', content: '2' },
     ]);
 
     const elementDivTextarea = createElementToCard('div', null, null);
@@ -73,7 +73,7 @@ export const displayContactform = (idFind) => {
     const elementButton = createElementToCard('button', 'Envoyer', [
         { attribut: 'class', content: 'contact_button' },
         { attribut: 'aria-label', content: 'Envoyer' },
-        { attribut: 'tabindex', content: '5' },
+        { attribut: 'tabindex', content: '2' },
     ]);
 
     const elementForm = createElementToCard('form', null, null);

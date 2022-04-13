@@ -195,7 +195,7 @@ body main #medias article figure figcaption div i {
   padding: 20px;
   background-color: #FFffffbb;
   overflow: auto;
-  z-index: 1;
+  z-index: 9999;
 }
 #contact_modal .modal {
   border-radius: 5px;
@@ -227,22 +227,27 @@ body main #medias article figure figcaption div i {
   flex-direction: column;
   align-items: flex-start;
 }
-#contact_modal .modal form label {
-  color: #312E2E;
-  font-size: 25px;
-}
-#contact_modal .modal form div {
+#contact_modal .modal form > div {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: self-start;
   margin-bottom: 26px;
 }
-#contact_modal .modal form input {
+#contact_modal .modal form > div label {
+  color: #312E2E;
+  font-size: 25px;
+  width: 100%;
+}
+#contact_modal .modal form > div label input {
   width: 100%;
   height: 68px;
   border: none;
   border-radius: 5px;
+}
+#contact_modal .modal form > div textarea {
+  width: 100%;
+  height: 100px;
 }
 #contact_modal .modal form button {
   font-size: 20px;

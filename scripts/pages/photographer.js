@@ -22,13 +22,20 @@ getPhotographer(idFromUrl);
 export const displayPhotographerHeader = (idFind) => {
     const section = document.getElementById('header_section');
 
-    const elementH1 = createElementToCard('h1', idFind.name, null);
+    const elementH1 = createElementToCard('h1', idFind.name, [
+        { attribut: 'arial-label', content: idFind.name },
+    ]);
     const elementH2 = createElementToCard(
         'h2',
         [idFind.city + ', ' + idFind.country],
-        null
+        [{ attribut: 'arial-label', content: idFind.country }]
     );
-    const elementP = createElementToCard('p', idFind.tagline, null);
+    const elementP = createElementToCard('p', idFind.tagline, [
+        {
+            attribut: 'arial-label',
+            content: idFind.tagline,
+        },
+    ]);
     const elementLabel = createElementToCard('label', null, null);
 
     elementLabel.append(elementH1, elementH2, elementP);

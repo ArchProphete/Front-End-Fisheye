@@ -232,7 +232,7 @@ body {
     padding: 20px;
     background-color: #FFffffbb;
     overflow: auto;
-    z-index: 1;
+    z-index: 9999;
     .modal {
         border-radius: 5px;
         background-color: $secondary-color;
@@ -263,24 +263,27 @@ body {
             flex-direction: column;
             align-items: flex-start;
 
-            label {
-                color: #312E2E;
-                font-size: 25px;
-            }
-
-            div {
+            > div {
                 display: flex;
                 flex-direction: column;
                 width: 100%;
                 align-items: self-start;
                 margin-bottom: 26px;
-            }
-
-            input {
-                width: 100%;
-                height: 68px;
-                border: none;
-                border-radius: 5px;
+                label {
+                    color: #312E2E;
+                    font-size: 25px;
+                    width: 100%;
+                    input {
+                        width: 100%;
+                        height: 68px;
+                        border: none;
+                        border-radius: 5px;
+                    }
+                }
+                textarea {
+                    width: 100%;
+                    height: 100px;
+                }
             }
 
             button {

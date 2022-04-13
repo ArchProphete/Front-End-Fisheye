@@ -2,6 +2,7 @@ import {
     createElementToCard,
     getNextId,
     getPrevId,
+    imgOrVideo,
     lightboxControl,
     mediaIndexFunc,
     mediaObjectFunc,
@@ -36,36 +37,13 @@ export const displayLightBox = (media_id, photographer, selectType) => {
         { attribut: 'data-id', content: nextId },
     ]);
 
-    let elementIMG;
-    let elementVIDEO;
+    imgOrVideo(mediaObject, photographer, elementLightBox);
 
-    if (mediaObject.image) {
-        elementIMG = createElementToCard('img', null, [
-            {
-                attribut: 'src',
-                content: `/assets/images/Sample%20Photos/${photographer.name}/${mediaObject.image}`,
-            },
-            { attribut: 'alt', content: mediaObject.title },
-            { attribut: 'id', content: 'media_lightbox' },
-        ]);
-
-        elementLightBox.appendChild(elementIMG);
-    } else if (mediaObject.video) {
-        elementVIDEO = createElementToCard('video', null, [
-            {
-                attribut: 'src',
-                content: `/assets/images/Sample%20Photos/${photographer.name}/${mediaObject.video}`,
-            },
-            { attribut: 'id', content: 'media_lightbox' },
-            { attribut: 'controls' },
-        ]);
-
-        elementLightBox.appendChild(elementVIDEO);
-    }
-
-    const elementP = createElementToCard('p', `${mediaObject.title}`, [
-        { attribut: 'id', content: 'title_lightbox' },
-    ]);
+    const elementP = createElementToCard(
+        'p',
+        `${mediaObject.title ? mediaObject.title : ''}`,
+        [{ attribut: 'id', content: 'title_lightbox' }]
+    );
 
     elementLightBox.append(
         elementCloseButton,
