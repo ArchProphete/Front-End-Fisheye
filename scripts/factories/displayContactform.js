@@ -102,23 +102,13 @@ export const displayContactform = (idFind) => {
     });
 
     elementButton.addEventListener('click', () => {
-        logContactFormContent(
-            document.getElementById('first').value,
-            document.getElementById('last').value,
-            document.getElementById('email').value,
-            document.getElementById('message').value
-        );
+        logContactFormContent('first', 'last', 'email', 'message');
         closeModal(modal);
     });
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
-            logContactFormContent(
-                document.getElementById('first').value,
-                document.getElementById('last').value,
-                document.getElementById('email').value,
-                document.getElementById('message').value
-            );
+            logContactFormContent('first', 'last', 'email', 'message');
             closeModal(modal);
         }
     });

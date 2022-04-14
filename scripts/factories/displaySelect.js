@@ -8,27 +8,46 @@ export const displaySelect = () => {
 
     const elementInput = createElementToCard('input', null, [
         { attribut: 'class', content: 'css-select__selected' },
-        { attribut: 'id', content: 'popularity' },
+        { attribut: 'id', content: 'selectField' },
         { attribut: 'type', content: 'text' },
         { attribut: 'value', content: 'Popularité' },
+        { attribut: 'disabled', content: 'disabled' },
+        { attribut: 'tabindex', content: '3' },
     ]);
+
+    const elementButtonPopylarity = createElementToCard(
+        'button',
+        'Popularité',
+        [
+            { attribut: 'class', content: 'css-select__option' },
+            { attribut: 'id', content: 'popularity' },
+            { attribut: 'type', content: 'button' },
+            { attribut: 'tabindex', content: '3' },
+        ]
+    );
 
     const elementButtonDate = createElementToCard('button', 'Date', [
         { attribut: 'class', content: 'css-select__option' },
         { attribut: 'id', content: 'date' },
         { attribut: 'type', content: 'button' },
+        { attribut: 'tabindex', content: '3' },
     ]);
 
     const elementButtonTitle = createElementToCard('button', 'Titre', [
         { attribut: 'class', content: 'css-select__option' },
         { attribut: 'id', content: 'title' },
         { attribut: 'type', content: 'button' },
+        { attribut: 'tabindex', content: '3' },
     ]);
 
     const elementDiv = createElementToCard('div', null, [
         { attribut: 'class', content: 'css-select__dropdown' },
     ]);
 
-    elementDiv.append(elementButtonDate, elementButtonTitle);
+    elementDiv.append(
+        elementButtonPopylarity,
+        elementButtonDate,
+        elementButtonTitle
+    );
     selectDiv.append(elementInput, elementDiv);
 };

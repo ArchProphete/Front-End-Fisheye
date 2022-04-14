@@ -56,6 +56,15 @@ body main .photograph-header .contact_button {
   border-radius: 5px;
   cursor: pointer;
 }
+body main #gallery {
+  /*
+              .css-select:focus .css-select__dropdown {
+                  transform: translateY(0.75rem);
+                  opacity: 1;
+                  visibility: visible;
+              }
+  */
+}
 body main #gallery .select {
   max-width: 16rem;
   margin: 20px 50px 0 50px;
@@ -83,6 +92,7 @@ body main #gallery .css-select:after {
   transition: top 0.3s ease, transform 0.3s ease;
   will-change: top;
   pointer-events: none;
+  z-index: 9999;
 }
 body main #gallery .css-select:focus-within:after {
   top: calc(50% - 0.25rem);
@@ -106,7 +116,7 @@ body main #gallery .css-select__selected {
 }
 body main #gallery .css-select__dropdown {
   position: absolute;
-  top: 100%;
+  top: 0;
   left: 0;
   padding: 0.5rem;
   width: 100%;
@@ -114,7 +124,7 @@ body main #gallery .css-select__dropdown {
   background: #901C1C;
   border-radius: 0.25rem;
   box-shadow: 0 0.25rem 1rem 0 rgba(0, 0, 0, 0.25);
-  transform: translateY(1.25rem);
+  /*transform: translateY(1.25rem);*/
   opacity: 0;
   visibility: hidden;
   transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
@@ -134,11 +144,6 @@ body main #gallery .css-select__dropdown::-webkit-scrollbar-thumb {
 }
 body main #gallery .css-select__dropdown::-webkit-scrollbar-thumb:hover {
   background: #717171;
-}
-body main #gallery .css-select:focus-within .css-select__dropdown {
-  transform: translateY(0.75rem);
-  opacity: 1;
-  visibility: visible;
 }
 body main #gallery .css-select__option {
   display: block;

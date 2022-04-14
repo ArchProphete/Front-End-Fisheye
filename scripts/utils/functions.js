@@ -196,12 +196,26 @@ export const closeModal = (element) => {
  * @param message
  */
 export const logContactFormContent = (firstname, lastname, email, message) => {
-    console.log(`Votre prénom: ${firstname}`);
-    console.log(`Votre nom: ${lastname}`);
-    console.log(`Votre email: ${email}`);
-    console.log(`Votre message: ${message}`);
+    console.log(`Votre prénom: ${document.getElementById(firstname).value}`);
+    console.log(`Votre nom: ${document.getElementById(lastname).value}`);
+    console.log(`Votre email: ${document.getElementById(email).value}`);
+    console.log(`Votre message: ${document.getElementById(message).value}`);
 };
 
+const displaySelectOption = () => {
+    document.querySelector('.css-select__dropdown').style.opacity = '1';
+    document.querySelector('.css-select__dropdown').style.visibility =
+        'visible';
+};
+
+const hideSelectOption = () => {
+    document.querySelector('.css-select__dropdown').style.opacity = '0';
+    document.querySelector('.css-select__dropdown').style.visibility = 'hidden';
+};
+
+const changeSelectField = (value) => {
+    document.getElementById('selectField').value = value;
+};
 /**
  * LIGHTBOX CONTROL
  * @param selectType
@@ -280,8 +294,14 @@ export const selectControl = (
         photographer
     );
 
+    document.getElementById('selectId').addEventListener('focus', () => {
+        displaySelectOption();
+    });
+
     // Select sort by TITLE
     document.getElementById('title').addEventListener('click', () => {
+        changeSelectField('Titre');
+        hideSelectOption();
         const arrayByTitle = mediasOfAPhotographer.sort((a, b) => {
             if (a.title < b.title) {
                 return -1;
@@ -300,6 +320,9 @@ export const selectControl = (
 
     // Select sort by DATE
     document.getElementById('date').addEventListener('click', () => {
+        document.getElementById('selectField').value = 'Date';
+        changeSelectField('Date');
+        hideSelectOption();
         const arrayByDate = mediasOfAPhotographer.sort((a, b) => {
             return new Date(b.date) - new Date(a.date);
         });
@@ -308,6 +331,9 @@ export const selectControl = (
 
     // Select sort by POPULARITY
     document.getElementById('popularity').addEventListener('click', () => {
+        document.getElementById('selectField').value = 'Popularité';
+        changeSelectField('Popularité');
+        hideSelectOption();
         const arrayByPopularity = mediasOfAPhotographer.sort((a, b) => {
             return b.likes > a.likes ? 1 : b.likes < a.likes ? -1 : 0;
         });
