@@ -1,6 +1,11 @@
 import { displayLightBox } from '../factories/displayLightbox.js';
 import { displayMedia } from '../factories/displayMedia.js';
 
+export const fetchAllData = async () => {
+    const response = await fetch('/data/photographers.json');
+    return await response.json();
+};
+
 /**
  * Set attribute and his content to an element
  * @param element
